@@ -42,4 +42,7 @@ Since the project is open source and modular, there are many things you can do t
 
 If you run into any issues, feel free to Google your problems, DM me in Discord, or open an issue in this project with the "derived" tag.
 
+## Other
 This project was made possible thanks to [Godot Engine](https://godotengine.org/license/).
+
+The project is based off of Incredibox by So Far So Good. This project is by no means a replica of the game or a replacement.
