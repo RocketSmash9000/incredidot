@@ -32,7 +32,7 @@ You will (*obviously*) need the GitHub app
 Open Godot Engine, click "Import" and select the `project.godot` file in the cloned project you made earlier. Then click on "Import & Edit".
 
 ## Contribute
-Of course you can! I want to improve this project to its best state, so if you'd like to help, feel free to create pull requests
+Of course you can! I want to improve this project to its best state, so if you'd like to help, feel free to clone the project and suggest/add changes
 
 ## Need help?
 First look for issues related to your problem. If that didn't resolve your issue, feel free to open an issue with a detailed description of your problem.
