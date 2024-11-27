@@ -1,21 +1,423 @@
-[gd_scene load_steps=2 format=3 uid="uid://ch3y0bb60blqg"]
+[gd_scene load_steps=30 format=3 uid="uid://ch3y0bb60blqg"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_gq7oe"]
+[ext_resource type="Texture2D" uid="uid://mxmy4v0cdheu" path="res://Assets/UI_elements/MenuIcon.svg" id="2_6b48f"]
+[ext_resource type="Texture2D" uid="uid://m167lmpdxhji" path="res://Assets/UI_elements/BottomBar.svg" id="3_bnpkk"]
+[ext_resource type="Texture2D" uid="uid://cj1d6k5rrlipt" path="res://Assets/UI_elements/Background.svg" id="4_7vdf6"]
+[ext_resource type="Texture2D" uid="uid://dfpirr3jncl2d" path="res://Assets/UI_elements/TopBar.svg" id="4_rxtr7"]
+[ext_resource type="Texture2D" uid="uid://b0x5rjxki7vfq" path="res://Assets/UI_elements/Shadow.svg" id="5_vmgcj"]
+[ext_resource type="Texture2D" uid="uid://did0edcn2l0v7" path="res://Assets/UI_elements/polo-sprite.tres" id="6_hw4w6"]
+[ext_resource type="Texture2D" uid="uid://ddwe0xjn3tdpj" path="res://Assets/01/PoloIcon.svg" id="7_61pjy"]
+[ext_resource type="Texture2D" uid="uid://dml7v32sigwg4" path="res://Assets/02/PoloIcon.svg" id="8_74mqa"]
+[ext_resource type="Script" path="res://Scripts/IconButton.gd" id="9_h6ytt"]
+[ext_resource type="Texture2D" uid="uid://c74jmh7tityd4" path="res://Assets/03/PoloIcon.svg" id="9_t2lii"]
+[ext_resource type="Texture2D" uid="uid://bljj8a1voffbg" path="res://Assets/04/PoloIcon.svg" id="10_oeh7j"]
+[ext_resource type="Texture2D" uid="uid://cvdvinwjaannm" path="res://Assets/05/PoloIcon.svg" id="11_bbkdy"]
+[ext_resource type="Texture2D" uid="uid://dgw1gdrgrl608" path="res://Assets/06/PoloIcon.svg" id="12_4p6qg"]
+[ext_resource type="Texture2D" uid="uid://p7qffung1xqe" path="res://Assets/07/PoloIcon.svg" id="13_im2s8"]
+[ext_resource type="Texture2D" uid="uid://c7d46sr8odi2v" path="res://Assets/08/PoloIcon.svg" id="14_f3p1n"]
+[ext_resource type="Texture2D" uid="uid://cpc6428d87oq3" path="res://Assets/09/PoloIcon.svg" id="15_h8ijg"]
+[ext_resource type="Texture2D" uid="uid://4dh1knleo6hw" path="res://Assets/10/PoloIcon.svg" id="16_fw38t"]
+[ext_resource type="Texture2D" uid="uid://slluf11gqk6n" path="res://Assets/11/PoloIcon.svg" id="17_ok1tv"]
+[ext_resource type="Texture2D" uid="uid://c6gagmxc0hbtp" path="res://Assets/12/PoloIcon.svg" id="18_v3c7g"]
+[ext_resource type="Texture2D" uid="uid://b5tymivay75t" path="res://Assets/13/PoloIcon.svg" id="19_a5whw"]
+[ext_resource type="Texture2D" uid="uid://6oebwckod5fh" path="res://Assets/14/PoloIcon.svg" id="20_qmqyb"]
+[ext_resource type="Texture2D" uid="uid://dxkl8n4dy03wb" path="res://Assets/15/PoloIcon.svg" id="21_qroar"]
+[ext_resource type="Texture2D" uid="uid://b7xnxw5dc0q25" path="res://Assets/16/PoloIcon.svg" id="22_nndov"]
+[ext_resource type="Texture2D" uid="uid://ch0webr62uog4" path="res://Assets/17/PoloIcon.svg" id="23_xie6p"]
+[ext_resource type="Texture2D" uid="uid://duxpluw0lfv1y" path="res://Assets/18/PoloIcon.svg" id="24_82h5w"]
+[ext_resource type="Texture2D" uid="uid://oqp1bhsch15k" path="res://Assets/19/PoloIcon.svg" id="25_mdvuw"]
+[ext_resource type="Texture2D" uid="uid://cu6xtwls4mqs3" path="res://Assets/20/PoloIcon.svg" id="26_4ldrl"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6i54"]
+size = Vector2(192, 496)
+
+[node name="Parent node" type="Node2D"]
 script = ExtResource("1_gq7oe")
 
-[node name="Control" type="Control" parent="."]
+[node name="Static elements" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="BottomBar" type="Sprite2D" parent="Static elements"]
+z_index = 1
+position = Vector2(964, 912)
+scale = Vector2(1.00417, 0.946015)
+texture = ExtResource("3_bnpkk")
+
+[node name="TopBar" type="Sprite2D" parent="Static elements"]
+z_index = 1
+position = Vector2(964, 60)
+scale = Vector2(1.00417, 0.814371)
+texture = ExtResource("4_rxtr7")
+
+[node name="Background" type="Sprite2D" parent="Static elements"]
+position = Vector2(960, 422.5)
+scale = Vector2(1, 1.19656)
+texture = ExtResource("4_7vdf6")
+
+[node name="Shadow" type="Sprite2D" parent="Static elements"]
+position = Vector2(964, 915)
+scale = Vector2(1.00417, 1.19725)
+texture = ExtResource("5_vmgcj")
+
+[node name="01" type="Area2D" parent="Static elements"]
+position = Vector2(192, 496)
+metadata/PoloID = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/01"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_a6i54")
+
+[node name="Sprite2D" type="Sprite2D" parent="Static elements/01"]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(0.68, 0.68)
+texture = ExtResource("6_hw4w6")
+
+[node name="02" type="Area2D" parent="Static elements"]
+position = Vector2(448, 496)
+metadata/PoloID = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/02"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_a6i54")
+
+[node name="Sprite2D" type="Sprite2D" parent="Static elements/02"]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(0.68, 0.68)
+texture = ExtResource("6_hw4w6")
+
+[node name="03" type="Area2D" parent="Static elements"]
+position = Vector2(704, 496)
+metadata/PoloID = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/03"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_a6i54")
+
+[node name="Sprite2D" type="Sprite2D" parent="Static elements/03"]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(0.68, 0.68)
+texture = ExtResource("6_hw4w6")
+
+[node name="04" type="Area2D" parent="Static elements"]
+position = Vector2(960, 496)
+metadata/PoloID = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/04"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_a6i54")
+
+[node name="Sprite2D" type="Sprite2D" parent="Static elements/04"]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(0.68, 0.68)
+texture = ExtResource("6_hw4w6")
+
+[node name="05" type="Area2D" parent="Static elements"]
+position = Vector2(1216, 496)
+metadata/PoloID = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/05"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_a6i54")
+
+[node name="Sprite2D" type="Sprite2D" parent="Static elements/05"]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(0.68, 0.68)
+texture = ExtResource("6_hw4w6")
+
+[node name="06" type="Area2D" parent="Static elements"]
+position = Vector2(1472, 496)
+metadata/PoloID = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/06"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_a6i54")
+
+[node name="Sprite2D" type="Sprite2D" parent="Static elements/06"]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(0.68, 0.68)
+texture = ExtResource("6_hw4w6")
+
+[node name="07" type="Area2D" parent="Static elements"]
+position = Vector2(1728, 496)
+metadata/PoloID = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/07"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_a6i54")
+
+[node name="Sprite2D" type="Sprite2D" parent="Static elements/07"]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(0.68, 0.68)
+texture = ExtResource("6_hw4w6")
+
+[node name="Interactable elements" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
-offset_bottom = 1080.0
+offset_bottom = 1088.0
 
-[node name="Label" type="Label" parent="Control"]
+[node name="MenuIcon" type="TextureButton" parent="Interactable elements"]
+z_index = 5
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 109.0
+offset_bottom = 109.0
+texture_normal = ExtResource("2_6b48f")
+
+[node name="Label" type="Label" parent="Interactable elements"]
 z_index = 10
 offset_left = 8.0
+offset_top = 1048.0
 offset_right = 238.0
-offset_bottom = 45.0
+offset_bottom = 1093.0
 scale = Vector2(0.6, 0.6)
 text = "Incredidot v0.1"
 horizontal_alignment = 1
+
+[node name="01" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 768.0
+offset_right = 362.0
+offset_bottom = 869.0
+action_mode = 0
+texture_normal = ExtResource("7_61pjy")
+script = ExtResource("9_h6ytt")
+metadata/iconID = 1
+
+[node name="02" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 768.0
+offset_right = 490.0
+offset_bottom = 869.0
+action_mode = 0
+texture_normal = ExtResource("8_74mqa")
+script = ExtResource("9_h6ytt")
+metadata/iconID = 2
+
+[node name="03" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 768.0
+offset_right = 618.0
+offset_bottom = 869.0
+action_mode = 0
+texture_normal = ExtResource("9_t2lii")
+script = ExtResource("9_h6ytt")
+metadata/iconID = 3
+
+[node name="04" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 768.0
+offset_right = 746.0
+offset_bottom = 869.0
+action_mode = 0
+texture_normal = ExtResource("10_oeh7j")
+script = ExtResource("9_h6ytt")
+metadata/iconID = 4
+
+[node name="05" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 768.0
+offset_right = 874.0
+offset_bottom = 869.0
+action_mode = 0
+texture_normal = ExtResource("11_bbkdy")
+script = ExtResource("9_h6ytt")
+metadata/iconID = 5
+
+[node name="06" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 768.0
+offset_right = 1002.0
+offset_bottom = 869.0
+action_mode = 0
+texture_normal = ExtResource("12_4p6qg")
+script = ExtResource("9_h6ytt")
+metadata/iconID = 6
+
+[node name="07" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 1024.0
+offset_top = 768.0
+offset_right = 1130.0
+offset_bottom = 869.0
+action_mode = 0
+texture_normal = ExtResource("13_im2s8")
+script = ExtResource("9_h6ytt")
+
+[node name="08" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 1152.0
+offset_top = 768.0
+offset_right = 1258.0
+offset_bottom = 869.0
+action_mode = 0
+texture_normal = ExtResource("14_f3p1n")
+script = ExtResource("9_h6ytt")
+
+[node name="09" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 1280.0
+offset_top = 768.0
+offset_right = 1386.0
+offset_bottom = 869.0
+action_mode = 0
+texture_normal = ExtResource("15_h8ijg")
+script = ExtResource("9_h6ytt")
+
+[node name="10" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 1408.0
+offset_top = 768.0
+offset_right = 1514.0
+offset_bottom = 869.0
+action_mode = 0
+texture_normal = ExtResource("16_fw38t")
+script = ExtResource("9_h6ytt")
+
+[node name="11" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 880.0
+offset_right = 426.0
+offset_bottom = 981.0
+action_mode = 0
+texture_normal = ExtResource("17_ok1tv")
+script = ExtResource("9_h6ytt")
+
+[node name="12" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 880.0
+offset_right = 554.0
+offset_bottom = 981.0
+action_mode = 0
+texture_normal = ExtResource("18_v3c7g")
+script = ExtResource("9_h6ytt")
+
+[node name="13" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 880.0
+offset_right = 682.0
+offset_bottom = 981.0
+action_mode = 0
+texture_normal = ExtResource("19_a5whw")
+script = ExtResource("9_h6ytt")
+
+[node name="14" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 880.0
+offset_right = 810.0
+offset_bottom = 981.0
+action_mode = 0
+texture_normal = ExtResource("20_qmqyb")
+script = ExtResource("9_h6ytt")
+
+[node name="15" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 880.0
+offset_right = 938.0
+offset_bottom = 981.0
+action_mode = 0
+texture_normal = ExtResource("21_qroar")
+script = ExtResource("9_h6ytt")
+
+[node name="16" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 880.0
+offset_right = 1066.0
+offset_bottom = 981.0
+action_mode = 0
+texture_normal = ExtResource("22_nndov")
+script = ExtResource("9_h6ytt")
+
+[node name="17" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 880.0
+offset_right = 1194.0
+offset_bottom = 981.0
+action_mode = 0
+texture_normal = ExtResource("23_xie6p")
+script = ExtResource("9_h6ytt")
+
+[node name="18" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 1216.0
+offset_top = 880.0
+offset_right = 1322.0
+offset_bottom = 981.0
+action_mode = 0
+texture_normal = ExtResource("24_82h5w")
+script = ExtResource("9_h6ytt")
+
+[node name="19" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 1344.0
+offset_top = 880.0
+offset_right = 1450.0
+offset_bottom = 981.0
+action_mode = 0
+texture_normal = ExtResource("25_mdvuw")
+script = ExtResource("9_h6ytt")
+
+[node name="20" type="TextureButton" parent="Interactable elements"]
+layout_mode = 0
+offset_left = 1472.0
+offset_top = 880.0
+offset_right = 1578.0
+offset_bottom = 981.0
+action_mode = 0
+texture_normal = ExtResource("26_4ldrl")
+script = ExtResource("9_h6ytt")
+
+[connection signal="button_down" from="Interactable elements/01" to="Interactable elements/01" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/01" to="Interactable elements/01" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/02" to="Interactable elements/02" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/02" to="Interactable elements/02" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/03" to="Interactable elements/03" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/03" to="Interactable elements/03" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/04" to="Interactable elements/04" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/04" to="Interactable elements/04" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/05" to="Interactable elements/05" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/05" to="Interactable elements/05" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/06" to="Interactable elements/06" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/06" to="Interactable elements/06" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/07" to="Interactable elements/07" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/07" to="Interactable elements/07" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/08" to="Interactable elements/08" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/08" to="Interactable elements/08" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/09" to="Interactable elements/09" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/09" to="Interactable elements/09" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/10" to="Interactable elements/10" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/10" to="Interactable elements/10" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/11" to="Interactable elements/11" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/11" to="Interactable elements/11" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/12" to="Interactable elements/12" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/12" to="Interactable elements/12" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/13" to="Interactable elements/13" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/13" to="Interactable elements/13" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/14" to="Interactable elements/14" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/14" to="Interactable elements/14" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/15" to="Interactable elements/15" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/15" to="Interactable elements/15" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/16" to="Interactable elements/16" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/16" to="Interactable elements/16" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/17" to="Interactable elements/17" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/17" to="Interactable elements/17" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/18" to="Interactable elements/18" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/18" to="Interactable elements/18" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/19" to="Interactable elements/19" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/19" to="Interactable elements/19" method="_when_self_button_up"]
+[connection signal="button_down" from="Interactable elements/20" to="Interactable elements/20" method="_when_self_button_down"]
+[connection signal="button_up" from="Interactable elements/20" to="Interactable elements/20" method="_when_self_button_up"]
