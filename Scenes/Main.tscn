@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ch3y0bb60blqg"]
+[gd_scene load_steps=32 format=3 uid="uid://ch3y0bb60blqg"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_gq7oe"]
 [ext_resource type="Texture2D" uid="uid://mxmy4v0cdheu" path="res://Assets/UI_elements/MenuIcon.svg" id="2_6b48f"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cj1d6k5rrlipt" path="res://Assets/UI_elements/Background.svg" id="4_7vdf6"]
 [ext_resource type="Texture2D" uid="uid://dfpirr3jncl2d" path="res://Assets/UI_elements/TopBar.svg" id="4_rxtr7"]
 [ext_resource type="Texture2D" uid="uid://b0x5rjxki7vfq" path="res://Assets/UI_elements/Shadow.svg" id="5_vmgcj"]
+[ext_resource type="Script" path="res://Scripts/Polo.gd" id="6_7jw41"]
 [ext_resource type="Texture2D" uid="uid://did0edcn2l0v7" path="res://Assets/UI_elements/polo-sprite.tres" id="6_hw4w6"]
 [ext_resource type="Texture2D" uid="uid://ddwe0xjn3tdpj" path="res://Assets/01/PoloIcon.svg" id="7_61pjy"]
 [ext_resource type="Texture2D" uid="uid://dml7v32sigwg4" path="res://Assets/02/PoloIcon.svg" id="8_74mqa"]
@@ -32,10 +33,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6i54"]
 size = Vector2(192, 496)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4jg0"]
+size = Vector2(1920.38, 16)
+
 [node name="Parent node" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_gq7oe")
 
 [node name="Static elements" type="CanvasLayer" parent="."]
+process_mode = 3
 layer = -1
 
 [node name="BottomBar" type="Sprite2D" parent="Static elements"]
@@ -61,10 +67,15 @@ scale = Vector2(1.00417, 1.19725)
 texture = ExtResource("5_vmgcj")
 
 [node name="01" type="Area2D" parent="Static elements"]
+process_mode = 3
+process_priority = 1
 position = Vector2(192, 496)
+disable_mode = 2
+script = ExtResource("6_7jw41")
 metadata/PoloID = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/01"]
+z_index = 1
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_a6i54")
 
@@ -78,6 +89,7 @@ position = Vector2(448, 496)
 metadata/PoloID = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/02"]
+z_index = 1
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_a6i54")
 
@@ -91,6 +103,7 @@ position = Vector2(704, 496)
 metadata/PoloID = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/03"]
+z_index = 1
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_a6i54")
 
@@ -104,6 +117,7 @@ position = Vector2(960, 496)
 metadata/PoloID = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/04"]
+z_index = 1
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_a6i54")
 
@@ -117,6 +131,7 @@ position = Vector2(1216, 496)
 metadata/PoloID = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/05"]
+z_index = 1
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_a6i54")
 
@@ -130,6 +145,7 @@ position = Vector2(1472, 496)
 metadata/PoloID = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/06"]
+z_index = 1
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_a6i54")
 
@@ -143,6 +159,7 @@ position = Vector2(1728, 496)
 metadata/PoloID = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/07"]
+z_index = 1
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_a6i54")
 
@@ -151,13 +168,7 @@ position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.68, 0.68)
 texture = ExtResource("6_hw4w6")
 
-[node name="Interactable elements" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1088.0
-
-[node name="MenuIcon" type="TextureButton" parent="Interactable elements"]
+[node name="MenuIcon" type="TextureButton" parent="."]
 z_index = 5
 offset_left = 16.0
 offset_top = 16.0
@@ -165,7 +176,7 @@ offset_right = 109.0
 offset_bottom = 109.0
 texture_normal = ExtResource("2_6b48f")
 
-[node name="Label" type="Label" parent="Interactable elements"]
+[node name="Label" type="Label" parent="."]
 z_index = 10
 offset_left = 8.0
 offset_top = 1048.0
@@ -175,249 +186,263 @@ scale = Vector2(0.6, 0.6)
 text = "Incredidot v0.1"
 horizontal_alignment = 1
 
-[node name="01" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 256.0
-offset_top = 768.0
-offset_right = 362.0
-offset_bottom = 869.0
+[node name="01" type="TextureButton" parent="."]
+offset_left = 289.0
+offset_top = 792.0
+offset_right = 395.0
+offset_bottom = 893.0
 action_mode = 0
 texture_normal = ExtResource("7_61pjy")
 script = ExtResource("9_h6ytt")
 metadata/iconID = 1
 
-[node name="02" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 384.0
-offset_top = 768.0
-offset_right = 490.0
-offset_bottom = 869.0
+[node name="02" type="TextureButton" parent="."]
+offset_left = 417.0
+offset_top = 792.0
+offset_right = 523.0
+offset_bottom = 893.0
 action_mode = 0
 texture_normal = ExtResource("8_74mqa")
 script = ExtResource("9_h6ytt")
 metadata/iconID = 2
 
-[node name="03" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 512.0
-offset_top = 768.0
-offset_right = 618.0
-offset_bottom = 869.0
+[node name="03" type="TextureButton" parent="."]
+offset_left = 545.0
+offset_top = 792.0
+offset_right = 651.0
+offset_bottom = 893.0
 action_mode = 0
 texture_normal = ExtResource("9_t2lii")
 script = ExtResource("9_h6ytt")
 metadata/iconID = 3
 
-[node name="04" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 640.0
-offset_top = 768.0
-offset_right = 746.0
-offset_bottom = 869.0
+[node name="04" type="TextureButton" parent="."]
+offset_left = 673.0
+offset_top = 792.0
+offset_right = 779.0
+offset_bottom = 893.0
 action_mode = 0
 texture_normal = ExtResource("10_oeh7j")
 script = ExtResource("9_h6ytt")
 metadata/iconID = 4
 
-[node name="05" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 768.0
-offset_top = 768.0
-offset_right = 874.0
-offset_bottom = 869.0
+[node name="05" type="TextureButton" parent="."]
+offset_left = 801.0
+offset_top = 792.0
+offset_right = 907.0
+offset_bottom = 893.0
 action_mode = 0
 texture_normal = ExtResource("11_bbkdy")
 script = ExtResource("9_h6ytt")
 metadata/iconID = 5
 
-[node name="06" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 896.0
-offset_top = 768.0
-offset_right = 1002.0
-offset_bottom = 869.0
+[node name="06" type="TextureButton" parent="."]
+offset_left = 929.0
+offset_top = 792.0
+offset_right = 1035.0
+offset_bottom = 893.0
 action_mode = 0
 texture_normal = ExtResource("12_4p6qg")
 script = ExtResource("9_h6ytt")
 metadata/iconID = 6
 
-[node name="07" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 1024.0
-offset_top = 768.0
-offset_right = 1130.0
-offset_bottom = 869.0
+[node name="07" type="TextureButton" parent="."]
+offset_left = 1057.0
+offset_top = 792.0
+offset_right = 1163.0
+offset_bottom = 893.0
 action_mode = 0
 texture_normal = ExtResource("13_im2s8")
 script = ExtResource("9_h6ytt")
+metadata/iconID = 7
 
-[node name="08" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 1152.0
-offset_top = 768.0
-offset_right = 1258.0
-offset_bottom = 869.0
+[node name="08" type="TextureButton" parent="."]
+offset_left = 1185.0
+offset_top = 792.0
+offset_right = 1291.0
+offset_bottom = 893.0
 action_mode = 0
 texture_normal = ExtResource("14_f3p1n")
 script = ExtResource("9_h6ytt")
+metadata/iconID = 8
 
-[node name="09" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 1280.0
-offset_top = 768.0
-offset_right = 1386.0
-offset_bottom = 869.0
+[node name="09" type="TextureButton" parent="."]
+offset_left = 1313.0
+offset_top = 792.0
+offset_right = 1419.0
+offset_bottom = 893.0
 action_mode = 0
 texture_normal = ExtResource("15_h8ijg")
 script = ExtResource("9_h6ytt")
+metadata/iconID = 9
 
-[node name="10" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 1408.0
-offset_top = 768.0
-offset_right = 1514.0
-offset_bottom = 869.0
+[node name="10" type="TextureButton" parent="."]
+offset_left = 1441.0
+offset_top = 792.0
+offset_right = 1547.0
+offset_bottom = 893.0
 action_mode = 0
 texture_normal = ExtResource("16_fw38t")
 script = ExtResource("9_h6ytt")
+metadata/iconID = 10
 
-[node name="11" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 320.0
-offset_top = 880.0
-offset_right = 426.0
-offset_bottom = 981.0
+[node name="11" type="TextureButton" parent="."]
+offset_left = 353.0
+offset_top = 904.0
+offset_right = 459.0
+offset_bottom = 1005.0
 action_mode = 0
 texture_normal = ExtResource("17_ok1tv")
 script = ExtResource("9_h6ytt")
+metadata/iconID = 11
 
-[node name="12" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 448.0
-offset_top = 880.0
-offset_right = 554.0
-offset_bottom = 981.0
+[node name="12" type="TextureButton" parent="."]
+offset_left = 481.0
+offset_top = 904.0
+offset_right = 587.0
+offset_bottom = 1005.0
 action_mode = 0
 texture_normal = ExtResource("18_v3c7g")
 script = ExtResource("9_h6ytt")
+metadata/iconID = 12
 
-[node name="13" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 576.0
-offset_top = 880.0
-offset_right = 682.0
-offset_bottom = 981.0
+[node name="13" type="TextureButton" parent="."]
+offset_left = 609.0
+offset_top = 904.0
+offset_right = 715.0
+offset_bottom = 1005.0
 action_mode = 0
 texture_normal = ExtResource("19_a5whw")
 script = ExtResource("9_h6ytt")
+metadata/iconID = 13
 
-[node name="14" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 704.0
-offset_top = 880.0
-offset_right = 810.0
-offset_bottom = 981.0
+[node name="14" type="TextureButton" parent="."]
+offset_left = 737.0
+offset_top = 904.0
+offset_right = 843.0
+offset_bottom = 1005.0
 action_mode = 0
 texture_normal = ExtResource("20_qmqyb")
 script = ExtResource("9_h6ytt")
+metadata/iconID = 14
 
-[node name="15" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 832.0
-offset_top = 880.0
-offset_right = 938.0
-offset_bottom = 981.0
+[node name="15" type="TextureButton" parent="."]
+offset_left = 865.0
+offset_top = 904.0
+offset_right = 971.0
+offset_bottom = 1005.0
 action_mode = 0
 texture_normal = ExtResource("21_qroar")
 script = ExtResource("9_h6ytt")
+metadata/iconID = 15
 
-[node name="16" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 960.0
-offset_top = 880.0
-offset_right = 1066.0
-offset_bottom = 981.0
+[node name="16" type="TextureButton" parent="."]
+offset_left = 993.0
+offset_top = 904.0
+offset_right = 1099.0
+offset_bottom = 1005.0
 action_mode = 0
 texture_normal = ExtResource("22_nndov")
 script = ExtResource("9_h6ytt")
+metadata/iconID = 16
 
-[node name="17" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 1088.0
-offset_top = 880.0
-offset_right = 1194.0
-offset_bottom = 981.0
+[node name="17" type="TextureButton" parent="."]
+offset_left = 1121.0
+offset_top = 904.0
+offset_right = 1227.0
+offset_bottom = 1005.0
 action_mode = 0
 texture_normal = ExtResource("23_xie6p")
 script = ExtResource("9_h6ytt")
+metadata/iconID = 17
 
-[node name="18" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 1216.0
-offset_top = 880.0
-offset_right = 1322.0
-offset_bottom = 981.0
+[node name="18" type="TextureButton" parent="."]
+offset_left = 1249.0
+offset_top = 904.0
+offset_right = 1355.0
+offset_bottom = 1005.0
 action_mode = 0
 texture_normal = ExtResource("24_82h5w")
 script = ExtResource("9_h6ytt")
+metadata/iconID = 18
 
-[node name="19" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 1344.0
-offset_top = 880.0
-offset_right = 1450.0
-offset_bottom = 981.0
+[node name="19" type="TextureButton" parent="."]
+offset_left = 1377.0
+offset_top = 904.0
+offset_right = 1483.0
+offset_bottom = 1005.0
 action_mode = 0
 texture_normal = ExtResource("25_mdvuw")
 script = ExtResource("9_h6ytt")
+metadata/iconID = 19
 
-[node name="20" type="TextureButton" parent="Interactable elements"]
-layout_mode = 0
-offset_left = 1472.0
-offset_top = 880.0
-offset_right = 1578.0
-offset_bottom = 981.0
+[node name="20" type="TextureButton" parent="."]
+offset_left = 1505.0
+offset_top = 904.0
+offset_right = 1611.0
+offset_bottom = 1005.0
 action_mode = 0
 texture_normal = ExtResource("26_4ldrl")
 script = ExtResource("9_h6ytt")
+metadata/iconID = 20
 
-[connection signal="button_down" from="Interactable elements/01" to="Interactable elements/01" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/01" to="Interactable elements/01" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/02" to="Interactable elements/02" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/02" to="Interactable elements/02" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/03" to="Interactable elements/03" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/03" to="Interactable elements/03" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/04" to="Interactable elements/04" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/04" to="Interactable elements/04" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/05" to="Interactable elements/05" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/05" to="Interactable elements/05" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/06" to="Interactable elements/06" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/06" to="Interactable elements/06" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/07" to="Interactable elements/07" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/07" to="Interactable elements/07" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/08" to="Interactable elements/08" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/08" to="Interactable elements/08" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/09" to="Interactable elements/09" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/09" to="Interactable elements/09" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/10" to="Interactable elements/10" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/10" to="Interactable elements/10" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/11" to="Interactable elements/11" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/11" to="Interactable elements/11" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/12" to="Interactable elements/12" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/12" to="Interactable elements/12" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/13" to="Interactable elements/13" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/13" to="Interactable elements/13" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/14" to="Interactable elements/14" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/14" to="Interactable elements/14" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/15" to="Interactable elements/15" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/15" to="Interactable elements/15" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/16" to="Interactable elements/16" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/16" to="Interactable elements/16" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/17" to="Interactable elements/17" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/17" to="Interactable elements/17" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/18" to="Interactable elements/18" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/18" to="Interactable elements/18" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/19" to="Interactable elements/19" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/19" to="Interactable elements/19" method="_when_self_button_up"]
-[connection signal="button_down" from="Interactable elements/20" to="Interactable elements/20" method="_when_self_button_down"]
-[connection signal="button_up" from="Interactable elements/20" to="Interactable elements/20" method="_when_self_button_up"]
+[node name="TopUI" type="Area2D" parent="."]
+position = Vector2(0, 728)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopUI"]
+position = Vector2(960.125, 8)
+shape = SubResource("RectangleShape2D_f4jg0")
+
+[node name="BottomUI" type="Area2D" parent="."]
+position = Vector2(0, 744)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomUI"]
+position = Vector2(960.188, 8)
+shape = SubResource("RectangleShape2D_f4jg0")
+
+[connection signal="mouse_entered" from="Static elements/01" to="Static elements/01" method="_when_self_mouse_entered"]
+[connection signal="mouse_exited" from="Static elements/01" to="Static elements/01" method="_when_self_mouse_exited"]
+[connection signal="button_down" from="01" to="01" method="_when_self_button_down"]
+[connection signal="button_up" from="01" to="01" method="_when_self_button_up"]
+[connection signal="button_down" from="02" to="02" method="_when_self_button_down"]
+[connection signal="button_up" from="02" to="02" method="_when_self_button_up"]
+[connection signal="button_down" from="03" to="03" method="_when_self_button_down"]
+[connection signal="button_up" from="03" to="03" method="_when_self_button_up"]
+[connection signal="button_down" from="04" to="04" method="_when_self_button_down"]
+[connection signal="button_up" from="04" to="04" method="_when_self_button_up"]
+[connection signal="button_down" from="05" to="05" method="_when_self_button_down"]
+[connection signal="button_up" from="05" to="05" method="_when_self_button_up"]
+[connection signal="button_down" from="06" to="06" method="_when_self_button_down"]
+[connection signal="button_up" from="06" to="06" method="_when_self_button_up"]
+[connection signal="button_down" from="07" to="07" method="_when_self_button_down"]
+[connection signal="button_up" from="07" to="07" method="_when_self_button_up"]
+[connection signal="button_down" from="08" to="08" method="_when_self_button_down"]
+[connection signal="button_up" from="08" to="08" method="_when_self_button_up"]
+[connection signal="button_down" from="09" to="09" method="_when_self_button_down"]
+[connection signal="button_up" from="09" to="09" method="_when_self_button_up"]
+[connection signal="button_down" from="10" to="10" method="_when_self_button_down"]
+[connection signal="button_up" from="10" to="10" method="_when_self_button_up"]
+[connection signal="button_down" from="11" to="11" method="_when_self_button_down"]
+[connection signal="button_up" from="11" to="11" method="_when_self_button_up"]
+[connection signal="button_down" from="12" to="12" method="_when_self_button_down"]
+[connection signal="button_up" from="12" to="12" method="_when_self_button_up"]
+[connection signal="button_down" from="13" to="13" method="_when_self_button_down"]
+[connection signal="button_up" from="13" to="13" method="_when_self_button_up"]
+[connection signal="button_down" from="14" to="14" method="_when_self_button_down"]
+[connection signal="button_up" from="14" to="14" method="_when_self_button_up"]
+[connection signal="button_down" from="15" to="15" method="_when_self_button_down"]
+[connection signal="button_up" from="15" to="15" method="_when_self_button_up"]
+[connection signal="button_down" from="16" to="16" method="_when_self_button_down"]
+[connection signal="button_up" from="16" to="16" method="_when_self_button_up"]
+[connection signal="button_down" from="17" to="17" method="_when_self_button_down"]
+[connection signal="button_up" from="17" to="17" method="_when_self_button_up"]
+[connection signal="button_down" from="18" to="18" method="_when_self_button_down"]
+[connection signal="button_up" from="18" to="18" method="_when_self_button_up"]
+[connection signal="button_down" from="19" to="19" method="_when_self_button_down"]
+[connection signal="button_up" from="19" to="19" method="_when_self_button_up"]
+[connection signal="button_down" from="20" to="20" method="_when_self_button_down"]
+[connection signal="button_up" from="20" to="20" method="_when_self_button_up"]
+[connection signal="mouse_entered" from="TopUI" to="." method="_when_top_ui_mouse_entered"]
+[connection signal="mouse_exited" from="TopUI" to="." method="_when_top_ui_mouse_exited"]
+[connection signal="mouse_entered" from="BottomUI" to="." method="_when_bottom_ui_mouse_entered"]
+[connection signal="mouse_exited" from="BottomUI" to="." method="_when_bottom_ui_mouse_exited"]
