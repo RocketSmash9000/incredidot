@@ -34,7 +34,7 @@
 size = Vector2(192, 496)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4jg0"]
-size = Vector2(1920.38, 16)
+size = Vector2(1920.38, 32)
 
 [node name="Parent node" type="Node2D"]
 process_mode = 3
@@ -86,6 +86,7 @@ texture = ExtResource("6_hw4w6")
 
 [node name="02" type="Area2D" parent="Static elements"]
 position = Vector2(448, 496)
+script = ExtResource("6_7jw41")
 metadata/PoloID = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/02"]
@@ -100,6 +101,7 @@ texture = ExtResource("6_hw4w6")
 
 [node name="03" type="Area2D" parent="Static elements"]
 position = Vector2(704, 496)
+script = ExtResource("6_7jw41")
 metadata/PoloID = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/03"]
@@ -114,6 +116,7 @@ texture = ExtResource("6_hw4w6")
 
 [node name="04" type="Area2D" parent="Static elements"]
 position = Vector2(960, 496)
+script = ExtResource("6_7jw41")
 metadata/PoloID = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/04"]
@@ -128,6 +131,7 @@ texture = ExtResource("6_hw4w6")
 
 [node name="05" type="Area2D" parent="Static elements"]
 position = Vector2(1216, 496)
+script = ExtResource("6_7jw41")
 metadata/PoloID = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/05"]
@@ -142,6 +146,7 @@ texture = ExtResource("6_hw4w6")
 
 [node name="06" type="Area2D" parent="Static elements"]
 position = Vector2(1472, 496)
+script = ExtResource("6_7jw41")
 metadata/PoloID = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/06"]
@@ -156,6 +161,7 @@ texture = ExtResource("6_hw4w6")
 
 [node name="07" type="Area2D" parent="Static elements"]
 position = Vector2(1728, 496)
+script = ExtResource("6_7jw41")
 metadata/PoloID = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/07"]
@@ -167,6 +173,14 @@ shape = SubResource("RectangleShape2D_a6i54")
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.68, 0.68)
 texture = ExtResource("6_hw4w6")
+
+[node name="Debug" type="Label" parent="Static elements"]
+visible = false
+z_index = 2
+offset_left = 1505.0
+offset_right = 1920.0
+offset_bottom = 232.0
+horizontal_alignment = 2
 
 [node name="MenuIcon" type="TextureButton" parent="."]
 z_index = 5
@@ -191,6 +205,7 @@ offset_left = 289.0
 offset_top = 792.0
 offset_right = 395.0
 offset_bottom = 893.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("7_61pjy")
 script = ExtResource("9_h6ytt")
@@ -201,6 +216,7 @@ offset_left = 417.0
 offset_top = 792.0
 offset_right = 523.0
 offset_bottom = 893.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("8_74mqa")
 script = ExtResource("9_h6ytt")
@@ -211,6 +227,7 @@ offset_left = 545.0
 offset_top = 792.0
 offset_right = 651.0
 offset_bottom = 893.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("9_t2lii")
 script = ExtResource("9_h6ytt")
@@ -221,6 +238,7 @@ offset_left = 673.0
 offset_top = 792.0
 offset_right = 779.0
 offset_bottom = 893.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("10_oeh7j")
 script = ExtResource("9_h6ytt")
@@ -231,6 +249,7 @@ offset_left = 801.0
 offset_top = 792.0
 offset_right = 907.0
 offset_bottom = 893.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("11_bbkdy")
 script = ExtResource("9_h6ytt")
@@ -241,6 +260,7 @@ offset_left = 929.0
 offset_top = 792.0
 offset_right = 1035.0
 offset_bottom = 893.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("12_4p6qg")
 script = ExtResource("9_h6ytt")
@@ -251,6 +271,7 @@ offset_left = 1057.0
 offset_top = 792.0
 offset_right = 1163.0
 offset_bottom = 893.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("13_im2s8")
 script = ExtResource("9_h6ytt")
@@ -261,6 +282,7 @@ offset_left = 1185.0
 offset_top = 792.0
 offset_right = 1291.0
 offset_bottom = 893.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("14_f3p1n")
 script = ExtResource("9_h6ytt")
@@ -271,6 +293,7 @@ offset_left = 1313.0
 offset_top = 792.0
 offset_right = 1419.0
 offset_bottom = 893.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("15_h8ijg")
 script = ExtResource("9_h6ytt")
@@ -281,6 +304,7 @@ offset_left = 1441.0
 offset_top = 792.0
 offset_right = 1547.0
 offset_bottom = 893.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("16_fw38t")
 script = ExtResource("9_h6ytt")
@@ -291,6 +315,7 @@ offset_left = 353.0
 offset_top = 904.0
 offset_right = 459.0
 offset_bottom = 1005.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("17_ok1tv")
 script = ExtResource("9_h6ytt")
@@ -301,6 +326,7 @@ offset_left = 481.0
 offset_top = 904.0
 offset_right = 587.0
 offset_bottom = 1005.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("18_v3c7g")
 script = ExtResource("9_h6ytt")
@@ -311,6 +337,7 @@ offset_left = 609.0
 offset_top = 904.0
 offset_right = 715.0
 offset_bottom = 1005.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("19_a5whw")
 script = ExtResource("9_h6ytt")
@@ -321,6 +348,7 @@ offset_left = 737.0
 offset_top = 904.0
 offset_right = 843.0
 offset_bottom = 1005.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("20_qmqyb")
 script = ExtResource("9_h6ytt")
@@ -331,6 +359,7 @@ offset_left = 865.0
 offset_top = 904.0
 offset_right = 971.0
 offset_bottom = 1005.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("21_qroar")
 script = ExtResource("9_h6ytt")
@@ -341,6 +370,7 @@ offset_left = 993.0
 offset_top = 904.0
 offset_right = 1099.0
 offset_bottom = 1005.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("22_nndov")
 script = ExtResource("9_h6ytt")
@@ -351,6 +381,7 @@ offset_left = 1121.0
 offset_top = 904.0
 offset_right = 1227.0
 offset_bottom = 1005.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("23_xie6p")
 script = ExtResource("9_h6ytt")
@@ -361,6 +392,7 @@ offset_left = 1249.0
 offset_top = 904.0
 offset_right = 1355.0
 offset_bottom = 1005.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("24_82h5w")
 script = ExtResource("9_h6ytt")
@@ -371,6 +403,7 @@ offset_left = 1377.0
 offset_top = 904.0
 offset_right = 1483.0
 offset_bottom = 1005.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("25_mdvuw")
 script = ExtResource("9_h6ytt")
@@ -381,27 +414,46 @@ offset_left = 1505.0
 offset_top = 904.0
 offset_right = 1611.0
 offset_bottom = 1005.0
+mouse_filter = 1
 action_mode = 0
 texture_normal = ExtResource("26_4ldrl")
 script = ExtResource("9_h6ytt")
 metadata/iconID = 20
 
 [node name="TopUI" type="Area2D" parent="."]
+process_priority = 5
+process_physics_priority = 5
 position = Vector2(0, 728)
+collision_priority = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopUI"]
-position = Vector2(960.125, 8)
+position = Vector2(960.125, 16)
 shape = SubResource("RectangleShape2D_f4jg0")
 
 [node name="BottomUI" type="Area2D" parent="."]
-position = Vector2(0, 744)
+process_priority = 5
+process_physics_priority = 5
+position = Vector2(0, 768)
+collision_priority = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomUI"]
-position = Vector2(960.188, 8)
+position = Vector2(960, 8)
 shape = SubResource("RectangleShape2D_f4jg0")
 
 [connection signal="mouse_entered" from="Static elements/01" to="Static elements/01" method="_when_self_mouse_entered"]
 [connection signal="mouse_exited" from="Static elements/01" to="Static elements/01" method="_when_self_mouse_exited"]
+[connection signal="mouse_entered" from="Static elements/02" to="Static elements/02" method="_when_self_mouse_entered"]
+[connection signal="mouse_exited" from="Static elements/02" to="Static elements/02" method="_when_self_mouse_exited"]
+[connection signal="mouse_entered" from="Static elements/03" to="Static elements/03" method="_when_self_mouse_entered"]
+[connection signal="mouse_exited" from="Static elements/03" to="Static elements/03" method="_when_self_mouse_exited"]
+[connection signal="mouse_entered" from="Static elements/04" to="Static elements/04" method="_when_self_mouse_entered"]
+[connection signal="mouse_exited" from="Static elements/04" to="Static elements/04" method="_when_self_mouse_exited"]
+[connection signal="mouse_entered" from="Static elements/05" to="Static elements/05" method="_when_self_mouse_entered"]
+[connection signal="mouse_exited" from="Static elements/05" to="Static elements/05" method="_when_self_mouse_exited"]
+[connection signal="mouse_entered" from="Static elements/06" to="Static elements/06" method="_when_self_mouse_entered"]
+[connection signal="mouse_exited" from="Static elements/06" to="Static elements/06" method="_when_self_mouse_exited"]
+[connection signal="mouse_entered" from="Static elements/07" to="Static elements/07" method="_when_self_mouse_entered"]
+[connection signal="mouse_exited" from="Static elements/07" to="Static elements/07" method="_when_self_mouse_exited"]
 [connection signal="button_down" from="01" to="01" method="_when_self_button_down"]
 [connection signal="button_up" from="01" to="01" method="_when_self_button_up"]
 [connection signal="button_down" from="02" to="02" method="_when_self_button_down"]
