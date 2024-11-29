@@ -19,7 +19,7 @@ You need Git (though most distros already have it installed)
  2. Click on "Download ZIP"
  3. Unzip the downloaded file into the desired folder
 
-### Use the GitHub app
+### [Reccomended] Use the GitHub app
 You will (*obviously*) need the GitHub app
  1. Add a new repository
  2. Click on "Clone repository..."
@@ -31,8 +31,8 @@ You will (*obviously*) need the GitHub app
 ## Edit the project
 Open Godot Engine, click "Import" and select the `project.godot` file in the cloned project you made earlier. Then click on "Import & Edit".
 
-## Contribute
-Of course you can! I want to improve this project to its best state, so if you'd like to help, feel free to clone the project and suggest/add changes
+## Want to contribute?
+Open the project in Godot, make your changes and create a pull request. Any and all help with making this project is appreciated.
 
 ## Need help?
 First look for issues related to your problem. If that didn't resolve your issue, feel free to open an issue with a detailed description of your problem.
@@ -45,4 +45,4 @@ If you run into any issues, feel free to Google your problems, DM me in Discord,
 ## Other
 This project was made possible thanks to [Godot Engine](https://godotengine.org/license/).
 
-The project is based off of Incredibox by So Far So Good. This project is by no means a replica of the game or a replacement.
+The project is based off of [Incredibox](https://www.incredibox.com/) by So Far So Good. This project is by no means a replica or a replacement of the game.
