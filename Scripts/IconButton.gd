@@ -1,4 +1,5 @@
 extends TextureButton
+# Define variables under this comment and above func _ready()
 
 const offset = Vector2(53, 50)
 var buttonPress = false
@@ -13,8 +14,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	
 	if buttonPress: # When the button is pressed, make it travel to the mouse's position
 		position = get_viewport().get_mouse_position() - offset # Offset exists because the button origin is top left corner
+	
 	if get_meta("iconID") in GlobalVars.picked_polos: # Disables the icon when the polo is in use
 		used = true
 	else:
@@ -39,5 +42,5 @@ func _when_self_button_up() -> void:
 	
 	if get_meta("iconID") not in GlobalVars.picked_polos:
 		GlobalVars.carrying_icon = false
-		await get_tree().create_timer(0.1).timeout # waits for 1 second
+		await get_tree().create_timer(0.1).timeout # waits for 0.1 seconds
 		GlobalVars.icon_meta = 0

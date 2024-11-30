@@ -1,4 +1,5 @@
 extends Area2D
+# Define variables under this comment and above func _ready()
 
 var mouse_in = false
 var picked = false
@@ -10,7 +11,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if mouse_in and GlobalVars.mouse_in_top_part: # 
 		if GlobalVars.mouse_up and !picked and GlobalVars.icon_meta != 0:
 			mouse_in = false
@@ -28,6 +29,10 @@ func _process(delta: float) -> void:
 			type = 0 # Returns itself to original value
 			picked = false # Sets polo to unused state
 			GlobalVars.mouse_up = false
+	
+	if GlobalVars.reset:
+		type = 0
+		picked = false
 
 
 func _when_self_mouse_entered() -> void:

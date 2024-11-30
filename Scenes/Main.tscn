@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ch3y0bb60blqg"]
+[gd_scene load_steps=34 format=3 uid="uid://ch3y0bb60blqg"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_gq7oe"]
 [ext_resource type="Texture2D" uid="uid://mxmy4v0cdheu" path="res://Assets/UI_elements/MenuIcon.svg" id="2_6b48f"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dfpirr3jncl2d" path="res://Assets/UI_elements/TopBar.svg" id="4_rxtr7"]
 [ext_resource type="Texture2D" uid="uid://b0x5rjxki7vfq" path="res://Assets/UI_elements/Shadow.svg" id="5_vmgcj"]
 [ext_resource type="Script" path="res://Scripts/Polo.gd" id="6_7jw41"]
+[ext_resource type="Texture2D" uid="uid://di08ce7wo85n4" path="res://Assets/UI_elements/CancelMenu.svg" id="6_bjk0m"]
 [ext_resource type="Texture2D" uid="uid://did0edcn2l0v7" path="res://Assets/UI_elements/polo-sprite.tres" id="6_hw4w6"]
 [ext_resource type="Texture2D" uid="uid://ddwe0xjn3tdpj" path="res://Assets/01/PoloIcon.svg" id="7_61pjy"]
+[ext_resource type="Texture2D" uid="uid://euj6c37gnwys" path="res://Assets/UI_elements/ResetIcon.svg" id="7_nfm6i"]
 [ext_resource type="Texture2D" uid="uid://dml7v32sigwg4" path="res://Assets/02/PoloIcon.svg" id="8_74mqa"]
 [ext_resource type="Script" path="res://Scripts/IconButton.gd" id="9_h6ytt"]
 [ext_resource type="Texture2D" uid="uid://c74jmh7tityd4" path="res://Assets/03/PoloIcon.svg" id="9_t2lii"]
@@ -31,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cu6xtwls4mqs3" path="res://Assets/20/PoloIcon.svg" id="26_4ldrl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6i54"]
-size = Vector2(192, 496)
+size = Vector2(180, 496)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4jg0"]
 size = Vector2(1920.38, 32)
@@ -66,6 +68,30 @@ position = Vector2(964, 915)
 scale = Vector2(1.00417, 1.19725)
 texture = ExtResource("5_vmgcj")
 
+[node name="CloseMenu" type="TextureButton" parent="Static elements"]
+z_index = 2
+offset_left = -128.0
+offset_top = 16.0
+offset_right = -35.0
+offset_bottom = 109.0
+texture_normal = ExtResource("6_bjk0m")
+
+[node name="ResetButton" type="TextureButton" parent="Static elements"]
+z_index = 2
+offset_left = -1912.0
+offset_top = 16.0
+offset_right = -1819.0
+offset_bottom = 109.0
+texture_normal = ExtResource("7_nfm6i")
+
+[node name="MenuIcon" type="TextureButton" parent="Static elements"]
+z_index = 5
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 109.0
+offset_bottom = 109.0
+texture_normal = ExtResource("2_6b48f")
+
 [node name="01" type="Area2D" parent="Static elements"]
 process_mode = 3
 process_priority = 1
@@ -80,8 +106,8 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_a6i54")
 
 [node name="Sprite2D" type="Sprite2D" parent="Static elements/01"]
-position = Vector2(0, 4.76837e-07)
-scale = Vector2(0.68, 0.68)
+position = Vector2(0.450006, 4.76837e-07)
+scale = Vector2(0.676842, 0.68)
 texture = ExtResource("6_hw4w6")
 
 [node name="02" type="Area2D" parent="Static elements"]
@@ -175,22 +201,16 @@ scale = Vector2(0.68, 0.68)
 texture = ExtResource("6_hw4w6")
 
 [node name="Debug" type="Label" parent="Static elements"]
-visible = false
 z_index = 2
-offset_left = 1505.0
-offset_right = 1920.0
-offset_bottom = 232.0
+offset_left = 1664.0
+offset_top = 8.0
+offset_right = 2079.0
+offset_bottom = 240.0
+scale = Vector2(0.6, 0.6)
 horizontal_alignment = 2
+uppercase = true
 
-[node name="MenuIcon" type="TextureButton" parent="."]
-z_index = 5
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 109.0
-offset_bottom = 109.0
-texture_normal = ExtResource("2_6b48f")
-
-[node name="Label" type="Label" parent="."]
+[node name="Version" type="Label" parent="."]
 z_index = 10
 offset_left = 8.0
 offset_top = 1048.0
@@ -440,6 +460,9 @@ collision_priority = 2.0
 position = Vector2(960, 8)
 shape = SubResource("RectangleShape2D_f4jg0")
 
+[connection signal="pressed" from="Static elements/CloseMenu" to="." method="_when_close_menu_pressed"]
+[connection signal="pressed" from="Static elements/ResetButton" to="." method="_when_reset_button_pressed"]
+[connection signal="pressed" from="Static elements/MenuIcon" to="." method="_when_menu_icon_pressed"]
 [connection signal="mouse_entered" from="Static elements/01" to="Static elements/01" method="_when_self_mouse_entered"]
 [connection signal="mouse_exited" from="Static elements/01" to="Static elements/01" method="_when_self_mouse_exited"]
 [connection signal="mouse_entered" from="Static elements/02" to="Static elements/02" method="_when_self_mouse_entered"]
