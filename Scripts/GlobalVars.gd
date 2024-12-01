@@ -20,6 +20,13 @@ var picked_polos = [] # Used to keep track of the polos that have been picked
 
 var reset = false # Self-explanatory
 
+# Use these to set the time in seconds it takes to complete
+# And the amount of loops it takes to return to the first loop
+# The loop indicator does not support more than 2 loops
+# So you may want to add code to implement it
+var loop_seconds = 6
+var loop_amount = 2
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -39,7 +46,7 @@ func _process(_delta: float) -> void:
 		mouse_in_top_part = false
 	
 	if reset:
-		await get_tree().create_timer(0.1).timeout # waits for 0.1 seconds
-		picked_polos.clear()
+		await get_tree().create_timer(0.05).timeout # waits for 0.05 seconds
+		picked_polos.clear() # Clears the list containing all currently picked polos
 		reset = false
 		print("All polos reset!")

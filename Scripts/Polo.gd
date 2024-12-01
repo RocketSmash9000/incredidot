@@ -30,9 +30,10 @@ func _process(_delta: float) -> void:
 			picked = false # Sets polo to unused state
 			GlobalVars.mouse_up = false
 	
-	if GlobalVars.reset:
+	if GlobalVars.reset: # Resets the polo when the reset is called
 		type = 0
 		picked = false
+
 
 
 func _when_self_mouse_entered() -> void:

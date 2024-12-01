@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1k1wksjerubs"
-path="res://.godot/imported/polo-sprite-hd.png-f37b92f092eda13b1140ac588d35bb59.ctex"
+uid="uid://bum4bd6www53h"
+path="res://.godot/imported/ProgressBar.svg-4707ee34518c2d5ebabcb7d97081b596.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI_elements/polo-sprite-hd.png"
-dest_files=["res://.godot/imported/polo-sprite-hd.png-f37b92f092eda13b1140ac588d35bb59.ctex"]
+source_file="res://Assets/UI_elements/ProgressBar.svg"
+dest_files=["res://.godot/imported/ProgressBar.svg-4707ee34518c2d5ebabcb7d97081b596.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

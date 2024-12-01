@@ -40,6 +40,13 @@ func _process(delta: float) -> void:
 		$"Static elements/MenuIcon".position.x -= delta*2200
 		if $"Static elements/MenuIcon".position.x <= 20:
 			hide_menu = false
+	
+	# From x = 1512 to x = 1960 in loop_seconds * loop_amount
+	if !GlobalVars.picked_polos.is_empty():
+		$"Static elements/ProgressBar".position.x += (448/(GlobalVars.loop_seconds*GlobalVars.loop_amount))*delta
+	
+	if $"Static elements/ProgressBar".position.x >= 1960 or GlobalVars.picked_polos.is_empty():
+		$"Static elements/ProgressBar".position.x = 1512
 
 
 # These functions calculate whether the mouse is in the top or bottom part of the screen

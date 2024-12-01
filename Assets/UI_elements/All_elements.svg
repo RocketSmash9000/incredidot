@@ -27,15 +27,15 @@
      inkscape:pagecheckerboard="1"
      inkscape:deskcolor="#505050"
      inkscape:document-units="px"
-     inkscape:zoom="0.5453125"
-     inkscape:cx="723.4384"
-     inkscape:cy="105.44413"
+     inkscape:zoom="3.0847533"
+     inkscape:cx="1689.7623"
+     inkscape:cy="34.524641"
      inkscape:window-width="2560"
      inkscape:window-height="1411"
      inkscape:window-x="2551"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer2" />
   <defs
      id="defs1">
     <inkscape:path-effect
@@ -102,7 +102,8 @@
   <g
      inkscape:label="Capa 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     style="display:inline">
     <rect
        style="display:inline;fill:#4d4d4d;fill-opacity:0.503685;stroke:none;stroke-width:9.9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0.4;stroke-dasharray:none"
        id="rect1"
@@ -241,5 +242,48 @@
          d="m -189.05375,64.030618 c 0.0167,-0.04176 0.0539,-0.08044 0.0501,-0.125256 -0.0135,-0.161574 -0.0715,-0.316399 -0.10021,-0.475969 -0.0464,-0.258059 -0.0762,-0.519007 -0.12525,-0.776582 -0.11225,-0.589351 -0.27556,-1.148797 -0.27556,-1.753573"
          id="path17" />
     </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Capa 2">
+    <rect
+       style="display:inline;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:6.2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1"
+       id="rect4"
+       width="232.43356"
+       height="16.208754"
+       x="1621.1"
+       y="75.415001"
+       ry="9.7656425e-09"
+       inkscape:export-filename="ProgressBar.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="display:inline;fill:#b1b1b1;fill-opacity:1;stroke:none;stroke-width:6.2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1"
+       id="rect9"
+       width="232.43356"
+       height="16.208754"
+       x="1512.6001"
+       y="75.415001"
+       ry="9.7656425e-09" />
+    <rect
+       style="display:inline;fill:#17202c;fill-opacity:1;stroke:#17202c;stroke-width:6.2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0.4;stroke-opacity:1"
+       id="rect7"
+       width="252.94498"
+       height="25.817034"
+       x="1368.155"
+       y="70.610863"
+       ry="9.7656425e-09"
+       inkscape:export-filename="ProgressCover.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="display:inline;fill:#17202c;fill-opacity:1;stroke:#17202c;stroke-width:6.2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0.4;stroke-opacity:1"
+       id="rect8"
+       width="66.466431"
+       height="25.817032"
+       x="1853.5336"
+       y="70.610863"
+       ry="9.7656425e-09" />
   </g>
 </svg>
