@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://bny3dhohmyykb"]
+
+[ext_resource type="Texture2D" uid="uid://did0edcn2l0v7" path="res://Assets/Unselected_polos/polo-sprite.tres" id="1_82lqm"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_82lqm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://b0x5rjxki7vfq" path="res://Assets/UI_elements/Shadow.svg" id="5_vmgcj"]
 [ext_resource type="Script" path="res://Scripts/Polo.gd" id="6_7jw41"]
 [ext_resource type="Texture2D" uid="uid://di08ce7wo85n4" path="res://Assets/UI_elements/CancelMenu.svg" id="6_bjk0m"]
-[ext_resource type="Texture2D" uid="uid://did0edcn2l0v7" path="res://Assets/Unselected_polos/polo-sprite.tres" id="6_hw4w6"]
 [ext_resource type="Texture2D" uid="uid://ddwe0xjn3tdpj" path="res://Assets/01/PoloIcon.svg" id="7_61pjy"]
 [ext_resource type="Texture2D" uid="uid://euj6c37gnwys" path="res://Assets/UI_elements/ResetIcon.svg" id="7_nfm6i"]
 [ext_resource type="Texture2D" uid="uid://dml7v32sigwg4" path="res://Assets/02/PoloIcon.svg" id="8_74mqa"]
@@ -20,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bljj8a1voffbg" path="res://Assets/04/PoloIcon.svg" id="10_oeh7j"]
 [ext_resource type="Texture2D" uid="uid://cvdvinwjaannm" path="res://Assets/05/PoloIcon.svg" id="11_bbkdy"]
 [ext_resource type="Texture2D" uid="uid://dgw1gdrgrl608" path="res://Assets/06/PoloIcon.svg" id="12_4p6qg"]
+[ext_resource type="SpriteFrames" uid="uid://bny3dhohmyykb" path="res://Assets/Unselected_polos/Unselected.tres" id="13_4cg42"]
 [ext_resource type="Texture2D" uid="uid://p7qffung1xqe" path="res://Assets/07/PoloIcon.svg" id="13_im2s8"]
 [ext_resource type="Texture2D" uid="uid://c7d46sr8odi2v" path="res://Assets/08/PoloIcon.svg" id="14_f3p1n"]
 [ext_resource type="Texture2D" uid="uid://cpc6428d87oq3" path="res://Assets/09/PoloIcon.svg" id="15_h8ijg"]
@@ -131,10 +131,13 @@ z_index = 1
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_a6i54")
 
-[node name="Sprite2D" type="Sprite2D" parent="Static elements/01"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Static elements/01"]
 position = Vector2(0.450006, 4.76837e-07)
 scale = Vector2(0.676842, 0.68)
-texture = ExtResource("6_hw4w6")
+sprite_frames = ExtResource("13_4cg42")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/01"]
+bus = &"01"
 
 [node name="02" type="Area2D" parent="Static elements"]
 position = Vector2(448, 496)
@@ -146,10 +149,13 @@ z_index = 1
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_a6i54")
 
-[node name="Sprite2D" type="Sprite2D" parent="Static elements/02"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Static elements/02"]
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.68, 0.68)
-texture = ExtResource("6_hw4w6")
+sprite_frames = ExtResource("13_4cg42")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/02"]
+bus = &"02"
 
 [node name="03" type="Area2D" parent="Static elements"]
 position = Vector2(704, 496)
@@ -161,10 +167,13 @@ z_index = 1
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_a6i54")
 
-[node name="Sprite2D" type="Sprite2D" parent="Static elements/03"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Static elements/03"]
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.68, 0.68)
-texture = ExtResource("6_hw4w6")
+sprite_frames = ExtResource("13_4cg42")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/03"]
+bus = &"03"
 
 [node name="04" type="Area2D" parent="Static elements"]
 position = Vector2(960, 496)
@@ -176,10 +185,13 @@ z_index = 1
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_a6i54")
 
-[node name="Sprite2D" type="Sprite2D" parent="Static elements/04"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Static elements/04"]
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.68, 0.68)
-texture = ExtResource("6_hw4w6")
+sprite_frames = ExtResource("13_4cg42")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/04"]
+bus = &"04"
 
 [node name="05" type="Area2D" parent="Static elements"]
 position = Vector2(1216, 496)
@@ -191,10 +203,13 @@ z_index = 1
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_a6i54")
 
-[node name="Sprite2D" type="Sprite2D" parent="Static elements/05"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Static elements/05"]
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.68, 0.68)
-texture = ExtResource("6_hw4w6")
+sprite_frames = ExtResource("13_4cg42")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/05"]
+bus = &"05"
 
 [node name="06" type="Area2D" parent="Static elements"]
 position = Vector2(1472, 496)
@@ -206,10 +221,13 @@ z_index = 1
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_a6i54")
 
-[node name="Sprite2D" type="Sprite2D" parent="Static elements/06"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Static elements/06"]
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.68, 0.68)
-texture = ExtResource("6_hw4w6")
+sprite_frames = ExtResource("13_4cg42")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/06"]
+bus = &"06"
 
 [node name="07" type="Area2D" parent="Static elements"]
 position = Vector2(1728, 496)
@@ -221,10 +239,13 @@ z_index = 1
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_a6i54")
 
-[node name="Sprite2D" type="Sprite2D" parent="Static elements/07"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Static elements/07"]
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.68, 0.68)
-texture = ExtResource("6_hw4w6")
+sprite_frames = ExtResource("13_4cg42")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/07"]
+bus = &"07"
 
 [node name="Debug" type="Label" parent="Static elements"]
 visible = false
