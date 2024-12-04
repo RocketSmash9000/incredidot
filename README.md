@@ -1,5 +1,5 @@
 # Incredidot
-An open source "tool" that aims for an easier experience during Incredibox mod development, as it removes most of the unnecesary work. With this tool you may now only need to add the polo sounds, designs and animations and UI elements. No need to code or type anything hard to understand.
+An open source "tool" that aims for an easier experience during Incredibox mod development, as it removes most of the unnecesary work. With this tool you may now only need to add the polo sounds, animations and icons. No need to code or type anything hard to understand. Everything works out of the box.
 
 ## Cloning the project
 You can choose one of these options
@@ -32,7 +32,7 @@ You will (*obviously*) need the GitHub app
 Open Godot Engine, click "Import" and select the `project.godot` file in the cloned project you made earlier. Then click on "Import & Edit".
 
 ## Want to contribute?
-Open the project in Godot, make your changes and create a pull request. Any and all help with making this project is appreciated.
+Open the project in Godot, make and commit your changes and create a pull request. Any and all help with making this project is appreciated.
 
 ## Need help?
 First look for issues related to your problem. If that didn't resolve your issue, feel free to open an issue with a detailed description of your problem.
