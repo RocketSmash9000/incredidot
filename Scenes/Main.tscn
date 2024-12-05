@@ -11,18 +11,18 @@
 [ext_resource type="Texture2D" uid="uid://b0x5rjxki7vfq" path="res://Assets/UI_elements/Shadow.svg" id="5_vmgcj"]
 [ext_resource type="Script" path="res://Scripts/Polo.gd" id="6_7jw41"]
 [ext_resource type="Texture2D" uid="uid://di08ce7wo85n4" path="res://Assets/UI_elements/CancelMenu.svg" id="6_bjk0m"]
-[ext_resource type="Texture2D" uid="uid://ddwe0xjn3tdpj" path="res://Assets/01/PoloIcon.svg" id="7_61pjy"]
+[ext_resource type="Texture2D" uid="uid://ddwe0xjn3tdpj" path="res://Assets/1/PoloIcon.svg" id="7_61pjy"]
 [ext_resource type="Texture2D" uid="uid://euj6c37gnwys" path="res://Assets/UI_elements/ResetIcon.svg" id="7_nfm6i"]
-[ext_resource type="Texture2D" uid="uid://dml7v32sigwg4" path="res://Assets/02/PoloIcon.svg" id="8_74mqa"]
+[ext_resource type="Texture2D" uid="uid://dml7v32sigwg4" path="res://Assets/2/PoloIcon.svg" id="8_74mqa"]
 [ext_resource type="Script" path="res://Scripts/IconButton.gd" id="9_h6ytt"]
-[ext_resource type="Texture2D" uid="uid://c74jmh7tityd4" path="res://Assets/03/PoloIcon.svg" id="9_t2lii"]
-[ext_resource type="Texture2D" uid="uid://bljj8a1voffbg" path="res://Assets/04/PoloIcon.svg" id="10_oeh7j"]
-[ext_resource type="Texture2D" uid="uid://cvdvinwjaannm" path="res://Assets/05/PoloIcon.svg" id="11_bbkdy"]
-[ext_resource type="Texture2D" uid="uid://dgw1gdrgrl608" path="res://Assets/06/PoloIcon.svg" id="12_4p6qg"]
+[ext_resource type="Texture2D" uid="uid://c74jmh7tityd4" path="res://Assets/3/PoloIcon.svg" id="9_t2lii"]
+[ext_resource type="Texture2D" uid="uid://bljj8a1voffbg" path="res://Assets/4/PoloIcon.svg" id="10_oeh7j"]
+[ext_resource type="Texture2D" uid="uid://cvdvinwjaannm" path="res://Assets/5/PoloIcon.svg" id="11_bbkdy"]
+[ext_resource type="Texture2D" uid="uid://dgw1gdrgrl608" path="res://Assets/6/PoloIcon.svg" id="12_4p6qg"]
 [ext_resource type="SpriteFrames" uid="uid://bny3dhohmyykb" path="res://Assets/Unselected_polos/Unselected.tres" id="13_4cg42"]
-[ext_resource type="Texture2D" uid="uid://p7qffung1xqe" path="res://Assets/07/PoloIcon.svg" id="13_im2s8"]
-[ext_resource type="Texture2D" uid="uid://c7d46sr8odi2v" path="res://Assets/08/PoloIcon.svg" id="14_f3p1n"]
-[ext_resource type="Texture2D" uid="uid://cpc6428d87oq3" path="res://Assets/09/PoloIcon.svg" id="15_h8ijg"]
+[ext_resource type="Texture2D" uid="uid://p7qffung1xqe" path="res://Assets/7/PoloIcon.svg" id="13_im2s8"]
+[ext_resource type="Texture2D" uid="uid://c7d46sr8odi2v" path="res://Assets/8/PoloIcon.svg" id="14_f3p1n"]
+[ext_resource type="Texture2D" uid="uid://cpc6428d87oq3" path="res://Assets/9/PoloIcon.svg" id="15_h8ijg"]
 [ext_resource type="Texture2D" uid="uid://4dh1knleo6hw" path="res://Assets/10/PoloIcon.svg" id="16_fw38t"]
 [ext_resource type="Texture2D" uid="uid://slluf11gqk6n" path="res://Assets/11/PoloIcon.svg" id="17_ok1tv"]
 [ext_resource type="Texture2D" uid="uid://c6gagmxc0hbtp" path="res://Assets/12/PoloIcon.svg" id="18_v3c7g"]
@@ -51,7 +51,7 @@ layer = -1
 
 [node name="ProgressBar" type="Sprite2D" parent="Static elements"]
 z_index = 3
-position = Vector2(1512, 64)
+position = Vector2(1960, 64)
 scale = Vector2(0.965517, 1)
 texture = ExtResource("2_g6wmk")
 
@@ -508,6 +508,8 @@ collision_priority = 2.0
 position = Vector2(960, 8)
 shape = SubResource("RectangleShape2D_f4jg0")
 
+[node name="Loop" type="Timer" parent="."]
+
 [connection signal="pressed" from="Static elements/CloseMenu" to="." method="_when_close_menu_pressed"]
 [connection signal="pressed" from="Static elements/ResetButton" to="." method="_when_reset_button_pressed"]
 [connection signal="pressed" from="Static elements/MenuIcon" to="." method="_when_menu_icon_pressed"]
@@ -569,3 +571,4 @@ shape = SubResource("RectangleShape2D_f4jg0")
 [connection signal="mouse_exited" from="TopUI" to="." method="_when_top_ui_mouse_exited"]
 [connection signal="mouse_entered" from="BottomUI" to="." method="_when_bottom_ui_mouse_entered"]
 [connection signal="mouse_exited" from="BottomUI" to="." method="_when_bottom_ui_mouse_exited"]
+[connection signal="timeout" from="Loop" to="." method="_when_loop_timeout"]

@@ -26,6 +26,7 @@ var reset = false # Self-explanatory
 # So you may want to add code to implement it
 var loop_seconds = 6
 var loop_amount = 2
+var current_loop = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
