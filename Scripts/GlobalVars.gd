@@ -28,6 +28,9 @@ var loop_seconds = 6
 var loop_amount = 2
 var current_loop = 1
 
+
+var total_sounds = 40
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
