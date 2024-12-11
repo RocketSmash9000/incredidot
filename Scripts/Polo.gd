@@ -6,36 +6,11 @@ var picked = false
 var type = 0
 var local_loop
 
-# This varaible contains all polo sounds, including extra ones
-# All polo sounds contained in this list are in order
-# meaning that index 0 corresponds to the first loop of the first polo
-var all_sounds = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Loads and adds every sound in the "Sound" directory to the all_sounds var
-	var dir = DirAccess.open("res://Sound/")
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if dir.current_is_dir():
-				pass
-			else:
-				if !file_name.begins_with(".") and !file_name.ends_with(".import"):
-					all_sounds.append(load("res://Sound/" + file_name))
-					print("Added and loaded " + "res://Sound/" + file_name + " to polo " + str(get_meta("PoloID")))
-			file_name = dir.get_next()
-	else:
-		push_error("\n[FATAL]: Could not access the 'Sound' path. Please check it exits and is named correctly.\n")
-		print("Quitting automatically to prevent further errors...")
-		get_tree().quit(1)
-	
-	if all_sounds.size() < GlobalVars.total_sounds:
-		push_warning("[WARN]: One or more sounds could not be loaded or do not exist.")
-	elif all_sounds.size() > GlobalVars.total_sounds:
-		print("[INFO]: There are more sounds than polos. It won't break a thing, but the sounds occupy useless space")
-	
+	pass
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -50,7 +25,6 @@ func _process(_delta: float) -> void:
 			GlobalVars.picked_polos.append(type) # Adds polo to the used list
 			GlobalVars.icon_meta = 0 # Clears the icon metadata
 			# match meta -> depending on the meta and the current loop it will play a different sound
-			play_sound(type)
 			local_loop = GlobalVars.current_loop
 	
 		if Input.is_action_just_pressed("ui_click") and !GlobalVars.carrying_icon and picked:
@@ -67,7 +41,8 @@ func _process(_delta: float) -> void:
 		$AudioStreamPlayer.stop()
 	
 	# When the current loop changes, play the next loop
-	if local_loop != GlobalVars.current_loop:
+	if local_loop != GlobalVars.current_loop and picked:
+		# TODO: Play the animation corresponding to the polo and loop
 		play_sound(type)
 		local_loop = GlobalVars.current_loop
 
@@ -86,104 +61,104 @@ func play_sound(meta) -> void:
 	match meta:
 		1:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[0])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[0])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[1])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[1])
 		2:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[2])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[2])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[3])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[3])
 		3:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[4])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[4])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[5])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[5])
 		4:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[6])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[6])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[7])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[7])
 		5:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[8])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[8])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[9])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[9])
 		6:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[10])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[10])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[11])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[11])
 		7:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[12])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[12])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[13])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[13])
 		8:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[14])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[14])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[15])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[15])
 		9:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[16])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[16])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[17])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[17])
 		10:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[18])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[18])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[19])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[19])
 		11:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[20])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[20])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[21])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[21])
 		12:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[22])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[22])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[23])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[23])
 		13:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[24])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[24])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[25])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[25])
 		14:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[26])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[26])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[27])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[27])
 		15:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[28])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[28])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[29])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[29])
 		16:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[30])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[30])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[31])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[31])
 		17:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[32])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[32])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[33])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[33])
 		18:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[34])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[34])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[35])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[35])
 		19:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[36])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[36])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[37])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[37])
 		20:
 			if GlobalVars.current_loop == 1:
-				$AudioStreamPlayer.set_stream(all_sounds[38])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[38])
 			else:
-				$AudioStreamPlayer.set_stream(all_sounds[39])
+				$AudioStreamPlayer.set_stream(GlobalVars.all_sounds[39])
 		# Paste more blocks below here if needed
 		
 		# Paste more blocks above here if needed

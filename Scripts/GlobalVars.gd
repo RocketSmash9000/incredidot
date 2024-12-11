@@ -31,9 +31,46 @@ var current_loop = 1
 
 var total_sounds = 40
 
-# Called when the node enters the scene tree for the first time.
+# This varaible contains all polo sounds, including extra ones
+# All polo sounds contained in this list are in order
+# meaning that index 0 corresponds to the first loop of the first polo
+var all_sounds = []
+
+# This variable contains all polo animations in the Assets folder
+# All files are in order, so index 0 is the animation for polo 1
+var polo_anims = []
+
 func _ready() -> void:
-	pass # Replace with function body.
+	# Loads and adds every sound in the "Sound" directory to the all_sounds var
+	var sound_dir = DirAccess.open("res://Sound/")
+	if sound_dir:
+		sound_dir.list_dir_begin()
+		var file_name = sound_dir.get_next()
+		while file_name != "":
+			if sound_dir.current_is_dir():
+				pass
+			else:
+				if !file_name.begins_with(".") and !file_name.ends_with(".import"):
+					all_sounds.append(load("res://Sound/" + file_name))
+					print("Added and loaded " + "res://Sound/" + file_name + " to polo " + str(get_meta("PoloID")))
+			file_name = sound_dir.get_next()
+	else:
+		push_error("\n[FATAL]: Could not access the 'Sound' path. Please check it exits and is named correctly.\n")
+		print("Quitting automatically to prevent further errors...")
+		get_tree().quit(1)
+	
+	if all_sounds.size() < GlobalVars.total_sounds:
+		push_warning("[WARN]: One or more sounds could not be loaded or do not exist.")
+	elif all_sounds.size() > GlobalVars.total_sounds:
+		print("[INFO]: There are more sounds than polos. It won't break a thing, but the sounds occupy useless space")
+	
+	# This block loads all polo animations for later use
+	# This forces all animations to be in a numbered folder with the same number as the folder
+	for h in range(1, (all_sounds/2) +1):
+		polo_anims.append(load("res://Assets/" + str(h) + "/" + str(h) + ".tres"))
+	
+	# Note: to make animations you will need to put all individual frames in the
+	# same folder as the animation file corresponding to each polo
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
