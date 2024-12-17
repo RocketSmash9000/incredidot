@@ -58,6 +58,11 @@ func _when_self_mouse_exited() -> void:
 func play_sound(meta) -> void:
 	# This function plays a sound corresponding to the polo meta and the current loop
 	# If you need to add more sounds for more polos, copy and paste blocks
+	# If there are not enough sounds, this function does nothing
+	if GlobalVars.all_sounds.size() < GlobalVars.total_sounds:
+		push_warning("[WARN] from play_sound(meta): The total amount of sounds is incorrect. Returning to the main script...")
+		return
+	
 	match meta:
 		1:
 			if GlobalVars.current_loop == 1:

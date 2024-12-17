@@ -31,18 +31,28 @@ func _process(delta: float) -> void:
 		$"Static elements/Debug".text = (debug_text)
 	
 	if show_menu: # Shows the menu when the menu button is pressed
-		$"Static elements/ResetButton".position.x += delta*2200
-		$"Static elements/CloseMenu".position.x += delta*2200
-		$"Static elements/MenuIcon".position.x += delta*2200
+		toggle_progressbar_visibility(false)
+		$"Static elements/ResetButton".position.x += 60
+		$"Static elements/CloseMenu".position.x += 60
+		$"Static elements/MenuIcon".position.x += 60
+		
 		if $"Static elements/CloseMenu".position.x >= 1800:
 			show_menu = false
+			$"Static elements/MenuIcon".position.x = 1952
+			$"Static elements/CloseMenu".position.x = 1808
+			$"Static elements/ResetButton".position.x = 24
 	
 	if hide_menu: # Hides the menu when the close menu button is pressed
-		$"Static elements/ResetButton".position.x -= delta*2200
-		$"Static elements/CloseMenu".position.x -= delta*2200
-		$"Static elements/MenuIcon".position.x -= delta*2200
-		if $"Static elements/MenuIcon".position.x <= 20:
+		toggle_progressbar_visibility(true)
+		$"Static elements/ResetButton".position.x -= 60
+		$"Static elements/CloseMenu".position.x -= 60
+		$"Static elements/MenuIcon".position.x -= 60
+		
+		if $"Static elements/MenuIcon".position.x <= 16:
 			hide_menu = false
+			$"Static elements/MenuIcon".position.x = 16
+			$"Static elements/CloseMenu".position.x = -128
+			$"Static elements/ResetButton".position.x = -1912
 	
 	# Delete or comment out this block in case you don't want the progress bar, or prefer using a custom one
 	if !GlobalVars.picked_polos.is_empty():
@@ -108,3 +118,14 @@ func _when_loop_timeout() -> void:
 		$"Static elements/ProgressBar".position.x = 1736
 	elif $"Static elements/ProgressBar".position.x < 1960 and GlobalVars.current_loop == 1:
 		$"Static elements/ProgressBar".position.x = 1512
+
+func toggle_progressbar_visibility(visibility):
+	# Detects if the visibility is actually going to be changed
+	# If it's not, does nothing.
+	# If true is passed, makes the progressbar visible
+	# If false is passed, makes the progressbar invisible
+	if $"Static elements/ProgressBar".visible != visibility:
+		$"Static elements/ProgressBar".visible = visibility
+		$"Static elements/ProgressCover".visible = visibility
+		$"Static elements/ProgressCover2".visible = visibility
+		$"Static elements/BaseProgressBar".visible = visibility

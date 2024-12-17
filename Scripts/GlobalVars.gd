@@ -42,7 +42,9 @@ var polo_anims = []
 
 func _ready() -> void:
 	# Loads and adds every sound in the "Sound" directory to the all_sounds var
-	var sound_dir = DirAccess.open("res://Sound/")
+	# May be difficult to understand
+	# Ignores files inside other directories
+	var sound_dir = DirAccess.open("res://Sound/") # Change this path if you have a custom sound folder
 	if sound_dir:
 		sound_dir.list_dir_begin()
 		var file_name = sound_dir.get_next()
@@ -59,14 +61,14 @@ func _ready() -> void:
 		print("Quitting automatically to prevent further errors...")
 		get_tree().quit(1)
 	
-	if all_sounds.size() < GlobalVars.total_sounds:
+	if all_sounds.size() < total_sounds:
 		push_warning("[WARN]: One or more sounds could not be loaded or do not exist.")
-	elif all_sounds.size() > GlobalVars.total_sounds:
+	elif all_sounds.size() > total_sounds:
 		print("[INFO]: There are more sounds than polos. It won't break a thing, but the sounds occupy useless space")
 	
 	# This block loads all polo animations for later use
-	# This forces all animations to be in a numbered folder with the same number as the folder
-	for h in range(1, (all_sounds/2) +1):
+	# This forces all animations to be in a numbered folder with the name being the same as the name of its folder
+	for h in range(1, (total_sounds/2) +1):
 		polo_anims.append(load("res://Assets/" + str(h) + "/" + str(h) + ".tres"))
 	
 	# Note: to make animations you will need to put all individual frames in the
