@@ -52,19 +52,19 @@ func _ready() -> void:
 			if sound_dir.current_is_dir():
 				pass
 			else:
-				if !file_name.begins_with(".") and !file_name.ends_with(".import"):
+				if !file_name.begins_with(".") and !file_name.ends_with(".import") and !file_name.ends_with(".md"):
 					all_sounds.append(load("res://Sound/" + file_name))
-					print("Added and loaded " + "res://Sound/" + file_name + " to polo " + str(get_meta("PoloID")))
+					Log.debug("Added and loaded " + "res://Sound/" + file_name + " to polo " + str(get_meta("PoloID")))
 			file_name = sound_dir.get_next()
 	else:
-		push_error("\n[FATAL]: Could not access the 'Sound' path. Please check it exits and is named correctly.\n")
-		print("Quitting automatically to prevent further errors...")
+		Log.fatal("Could not access the 'Sound' path. Please check it exits and is named correctly.")
+		Log.info("Quitting automatically to prevent further errors...")
 		get_tree().quit(1)
 	
 	if all_sounds.size() < total_sounds:
-		push_warning("[WARN]: One or more sounds could not be loaded or do not exist.")
+		Log.warn("One or more sounds could not be loaded or do not exist.")
 	elif all_sounds.size() > total_sounds:
-		print("[INFO]: There are more sounds than polos. It won't break a thing, but the sounds occupy useless space")
+		Log.info("There are more sounds than polos. It won't break a thing, but the sounds occupy useless space")
 	
 	# This block loads all polo animations for later use
 	# This forces all animations to be in a numbered folder with the name being the same as the name of its folder
@@ -78,7 +78,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
-		print(mouse_up, carrying_icon)
+		Log.debug(mouse_up, carrying_icon)
 	
 	if top_detector_entered and bottom_detector_exited: # If this triggers, the mouse is in the top part
 		mouse_in_top_part = true
@@ -92,4 +92,4 @@ func _process(_delta: float) -> void:
 		await get_tree().create_timer(0.05).timeout # waits for 0.05 seconds
 		picked_polos.clear() # Clears the list containing all currently picked polos
 		reset = false
-		print("All polos reset!")
+		Log.debug("All polos reset!")

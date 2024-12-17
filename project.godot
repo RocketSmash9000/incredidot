@@ -26,6 +26,7 @@ driver/output_latency=10
 [autoload]
 
 GlobalVars="*res://Scripts/GlobalVars.gd"
+Log="*res://addons/logger/logger.gd"
 
 [debug]
 
@@ -45,6 +46,10 @@ window/stretch/mode="viewport"
 naming/default_signal_callback_name="_when_{node_name}_{signal_name}"
 naming/default_signal_callback_to_self_name="_when_self_{signal_name}"
 naming/script_name_casing=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/logger/plugin.cfg")
 
 [gui]
 

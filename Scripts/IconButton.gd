@@ -6,6 +6,7 @@ var buttonPress = false
 var originalPos = position
 var used = false
 
+var iconstream = LogStream.new("Icon")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,12 +30,12 @@ func _when_self_button_down() -> void:
 		buttonPress = true
 		GlobalVars.mouse_up = false
 		GlobalVars.carrying_icon = true
-		print("Icon is being carried")
+		iconstream.debug("Icon is being carried")
 
 
 func _when_self_button_up() -> void:
 	if !used:
-		print("Icon released")
+		iconstream.debug("Icon released")
 		buttonPress = false
 		GlobalVars.mouse_up = true # Mouse button has been released
 		GlobalVars.icon_meta = get_meta("iconID")

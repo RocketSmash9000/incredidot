@@ -6,6 +6,7 @@ var picked = false
 var type = 0
 var local_loop
 
+var polostream = LogStream.new("Polo")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,14 +22,14 @@ func _process(_delta: float) -> void:
 			picked = true # Sets itself to picked
 			type = GlobalVars.icon_meta # Fetches the metadata of the icon
 			GlobalVars.carrying_icon = false
-			print("Polo number ", get_meta("PoloID"), " picked with type ", type)
+			polostream.debug("Polo number " + str(get_meta("PoloID")) + " picked with type " + str(type))
 			GlobalVars.picked_polos.append(type) # Adds polo to the used list
 			GlobalVars.icon_meta = 0 # Clears the icon metadata
 			# match meta -> depending on the meta and the current loop it will play a different sound
 			local_loop = GlobalVars.current_loop
 	
 		if Input.is_action_just_pressed("ui_click") and !GlobalVars.carrying_icon and picked:
-			print("Polo number ", get_meta("PoloID"), " unpicked")
+			polostream.debug("Polo number " + str(get_meta("PoloID")) + " unpicked")
 			GlobalVars.picked_polos.erase(type) # Removes polo type from used list
 			type = 0 # Returns itself to original value
 			picked = false # Sets polo to unused state
@@ -59,8 +60,9 @@ func play_sound(meta) -> void:
 	# This function plays a sound corresponding to the polo meta and the current loop
 	# If you need to add more sounds for more polos, copy and paste blocks
 	# If there are not enough sounds, this function does nothing
+	var sound_player = LogStream.new("Polo/play_sound")
 	if GlobalVars.all_sounds.size() < GlobalVars.total_sounds:
-		push_warning("[WARN] from play_sound(meta): The total amount of sounds is incorrect. Returning to the main script...")
+		sound_player.warn("The total amount of sounds is incorrect. Returning to the main script...")
 		return
 	
 	match meta:
@@ -168,6 +170,6 @@ func play_sound(meta) -> void:
 		
 		# Paste more blocks above here if needed
 		_: # If something goes wrong...
-			print("Cannot play any sound!")
+			sound_player.info("Cannot play any sound!")
 	
 	$AudioStreamPlayer.play()
