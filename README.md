@@ -46,3 +46,5 @@ If you run into any issues, feel free to Google your problems, DM me in Discord,
 This project was made possible thanks to [Godot Engine](https://godotengine.org/license/).
 
 The project is based off of [Incredibox](https://www.incredibox.com/) by So Far So Good. This project is by no means a replica or a replacement of the game.
+
+If you use, remix or adapt this project, the license will be considered fulfilled if you place a link to this repo (that's visible and easy to access)
