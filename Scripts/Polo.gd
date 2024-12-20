@@ -13,6 +13,9 @@ var polostream
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	polostream = LogStream.new("Polo" + str(get_meta("PoloID")))
+	# Creates an offset for the default polo animation so that all polos are desynced
+	randomize()
+	$Sprite2D.frame = randi() % 50
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,12 +51,16 @@ func _process(_delta: float) -> void:
 			$AudioStreamPlayer.stop()
 			# Returns to its default animation when unpicked
 			$Sprite2D.sprite_frames = default_anim
+			$Sprite2D.frame = randi() % 50
+			randomize()
 	
 	if GlobalVars.reset: # Resets the polo when the reset is called
 		type = 0
 		picked = false
 		$AudioStreamPlayer.stop()
 		$Sprite2D.sprite_frames = default_anim
+		$Sprite2D.frame = randi() % 50
+		randomize()
 	
 	# When the current loop changes, play the next loop
 	if local_loop != GlobalVars.current_loop and picked:
