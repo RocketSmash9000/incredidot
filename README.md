@@ -35,7 +35,7 @@ Open Godot Engine, click "Import" and select the `project.godot` file in the clo
 Open the project in Godot, make and commit your changes and create a pull request. Any and all help with making this project is appreciated.
 
 ## Need help?
-First look for issues related to your problem. If that didn't resolve your issue, feel free to open an issue with a detailed description of your problem.
+First look for issues related to your problem. If that didn't resolve your issue, feel free to open an issue with a detailed description of your problem or read the [wiki](https://github.com/RocketSmash9000/incredidot/wiki)
 
 ## Do you want/need to change the code?
 Since the project is open source and modular, there are many things you can do to adapt it to your needs. For example, you may want to add 30 polo sounds instead of the usual 20 for some big mod you're creating. In those cases, I reccommend that you please refer to the documentation in the wiki tab, or read the comments in the code.
