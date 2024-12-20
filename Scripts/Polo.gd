@@ -6,11 +6,13 @@ var picked = false
 var type = 0
 var local_loop
 
-var polostream = LogStream.new("Polo")
+const default_anim = preload("res://Assets/Unselected_polos/Unselected.tres")
+
+var polostream
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	polostream = LogStream.new("Polo" + str(get_meta("PoloID")))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,7 +27,16 @@ func _process(_delta: float) -> void:
 			polostream.debug("Polo number " + str(get_meta("PoloID")) + " picked with type " + str(type))
 			GlobalVars.picked_polos.append(type) # Adds polo to the used list
 			GlobalVars.icon_meta = 0 # Clears the icon metadata
-			# match meta -> depending on the meta and the current loop it will play a different sound
+			play_sound(type)
+			if GlobalVars.current_loop == 1:
+				# Sets the polo animation to its corresponding type
+				$Sprite2D.sprite_frames = GlobalVars.polo_anims[type]
+				polostream.debug("Animation for 1st loop set!")
+			else:
+				$Sprite2D.sprite_frames = GlobalVars.polo_anims[type]
+				# If animation FPS = 30 and loop = 6s, frame for next loop = 180
+				$Sprite2D.frame = 180
+				polostream.debug("Animation for 2nd loop set!")
 			local_loop = GlobalVars.current_loop
 	
 		if Input.is_action_just_pressed("ui_click") and !GlobalVars.carrying_icon and picked:
@@ -35,11 +46,14 @@ func _process(_delta: float) -> void:
 			picked = false # Sets polo to unused state
 			GlobalVars.mouse_up = false
 			$AudioStreamPlayer.stop()
+			# Returns to its default animation when unpicked
+			$Sprite2D.sprite_frames = default_anim
 	
 	if GlobalVars.reset: # Resets the polo when the reset is called
 		type = 0
 		picked = false
 		$AudioStreamPlayer.stop()
+		$Sprite2D.sprite_frames = default_anim
 	
 	# When the current loop changes, play the next loop
 	if local_loop != GlobalVars.current_loop and picked:

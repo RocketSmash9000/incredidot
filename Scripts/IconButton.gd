@@ -6,11 +6,11 @@ var buttonPress = false
 var originalPos = position
 var used = false
 
-var iconstream = LogStream.new("Icon")
+var iconstream
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	iconstream = LogStream.new("Icon" + str(get_meta("iconID")))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -77,9 +77,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		Log.debug(mouse_up, carrying_icon)
-	
 	if top_detector_entered and bottom_detector_exited: # If this triggers, the mouse is in the top part
 		mouse_in_top_part = true
 		mouse_in_bottom_part = false
