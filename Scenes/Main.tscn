@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ch3y0bb60blqg"]
+[gd_scene load_steps=38 format=3 uid="uid://ch3y0bb60blqg"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_gq7oe"]
 [ext_resource type="Texture2D" uid="uid://mxmy4v0cdheu" path="res://Assets/UI_elements/MenuIcon.svg" id="2_6b48f"]
@@ -22,6 +22,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bny3dhohmyykb" path="res://Assets/Unselected_polos/Unselected.tres" id="13_4cg42"]
 [ext_resource type="Texture2D" uid="uid://p7qffung1xqe" path="res://Assets/7/PoloIcon.svg" id="13_im2s8"]
 [ext_resource type="Texture2D" uid="uid://c7d46sr8odi2v" path="res://Assets/8/PoloIcon.svg" id="14_f3p1n"]
+[ext_resource type="Script" path="res://Scripts/AudioPlayer.gd" id="14_futju"]
 [ext_resource type="Texture2D" uid="uid://cpc6428d87oq3" path="res://Assets/9/PoloIcon.svg" id="15_h8ijg"]
 [ext_resource type="Texture2D" uid="uid://4dh1knleo6hw" path="res://Assets/10/PoloIcon.svg" id="16_fw38t"]
 [ext_resource type="Texture2D" uid="uid://slluf11gqk6n" path="res://Assets/11/PoloIcon.svg" id="17_ok1tv"]
@@ -138,6 +139,7 @@ sprite_frames = ExtResource("13_4cg42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/01"]
 bus = &"01"
+script = ExtResource("14_futju")
 
 [node name="02" type="Area2D" parent="Static elements"]
 position = Vector2(448, 496)
@@ -156,6 +158,7 @@ sprite_frames = ExtResource("13_4cg42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/02"]
 bus = &"02"
+script = ExtResource("14_futju")
 
 [node name="03" type="Area2D" parent="Static elements"]
 position = Vector2(704, 496)
@@ -174,6 +177,7 @@ sprite_frames = ExtResource("13_4cg42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/03"]
 bus = &"03"
+script = ExtResource("14_futju")
 
 [node name="04" type="Area2D" parent="Static elements"]
 position = Vector2(960, 496)
@@ -192,6 +196,7 @@ sprite_frames = ExtResource("13_4cg42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/04"]
 bus = &"04"
+script = ExtResource("14_futju")
 
 [node name="05" type="Area2D" parent="Static elements"]
 position = Vector2(1216, 496)
@@ -210,6 +215,7 @@ sprite_frames = ExtResource("13_4cg42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/05"]
 bus = &"05"
+script = ExtResource("14_futju")
 
 [node name="06" type="Area2D" parent="Static elements"]
 position = Vector2(1472, 496)
@@ -228,6 +234,7 @@ sprite_frames = ExtResource("13_4cg42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/06"]
 bus = &"06"
+script = ExtResource("14_futju")
 
 [node name="07" type="Area2D" parent="Static elements"]
 position = Vector2(1728, 496)
@@ -246,6 +253,7 @@ sprite_frames = ExtResource("13_4cg42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/07"]
 bus = &"07"
+script = ExtResource("14_futju")
 
 [node name="Debug" type="Label" parent="Static elements"]
 visible = false

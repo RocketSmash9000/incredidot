@@ -24,7 +24,9 @@ var reset = false # Self-explanatory
 # And the amount of loops it takes to return to the first loop
 # The loop indicator does not support more than 2 loops
 # So you may want to add code to implement it
-var loop_seconds = 6
+# There is a delay of around 0.05 seconds before audio plays
+# So if your sounds are 6 seconds, subtract 0.05 from it
+var loop_seconds = 5.95
 var loop_amount = 2
 var current_loop = 1
 
@@ -54,7 +56,7 @@ func _ready() -> void:
 			else:
 				if !file_name.begins_with(".") and !file_name.ends_with(".import") and !file_name.ends_with(".md"):
 					all_sounds.append(load("res://Sound/" + file_name))
-					Log.debug("Added and loaded " + "res://Sound/" + file_name + " to polo " + str(get_meta("PoloID")))
+					Log.debug("Added and loaded " + "res://Sound/" + file_name)
 			file_name = sound_dir.get_next()
 	else:
 		Log.fatal("Could not access the 'Sound' path. Please check it exits and is named correctly.")
