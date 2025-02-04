@@ -4,6 +4,15 @@ An open source "tool" that aims for an easier experience during Incredibox mod d
 ## Cloning the project
 You can choose one of these options
 
+### [Reccomended] Use the GitHub app
+You will (*obviously*) need the GitHub app
+ 1. Add a new repository
+ 2. Click on "Clone repository..."
+ 3. Select "URL"
+ 4. Paste `https://github.com/RocketSmash9000/incredidot.git` into the URL textbar
+ 5. Select the folder you want the repository to be in
+ 6. Click "Clone"
+
 ### Git command (Windows)
 You will need to have Git installed.
  1. Open cmd or PowerShell in the folder you want the project cloned into. The folder should be empty.
@@ -18,15 +27,6 @@ You need Git (though most distros already have it installed)
  1. Click the green button at the top of the page that says "Code".
  2. Click on "Download ZIP"
  3. Unzip the downloaded file into the desired folder
-
-### [Reccomended] Use the GitHub app
-You will (*obviously*) need the GitHub app
- 1. Add a new repository
- 2. Click on "Clone repository..."
- 3. Select "URL"
- 4. Paste `https://github.com/RocketSmash9000/incredidot.git` into the URL textbar
- 5. Select the folder you want the repository to be in
- 6. Click "Clone"
 
 ## Edit the project
 Open Godot Engine, click "Import" and select the `project.godot` file in the cloned project you made earlier. Then click on "Import & Edit".
