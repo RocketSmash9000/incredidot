@@ -6,6 +6,11 @@ var local_loop
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	local_loop = GlobalVars.current_loop
+	
+	# Comment this block if you want to do some testing.
+	# If left uncommented, it will close the game if there are not enough sounds in 'res://Sound/'
+	# In case you forgot, 'GlobalVars.total_sounds' in 'res://Scripts/GlobalVars.gd' stores the
+	# amount of sounds. The value is manually set
 	if GlobalVars.all_sounds.size() < GlobalVars.total_sounds:
 		sound_player.fatal("The total amount of sounds is incorrect. Quitting before game crashes on its own...")
 		get_tree().quit(2) # Error code 2 = Total amount of sounds is less than expected
@@ -19,6 +24,11 @@ func _process(delta: float) -> void:
 func sound_play() -> void:
 	meta = get_parent().type
 	sound_player.debug("Meta = " + str(meta))
+	
+	# In case your mod has more than 2 loops, replace the 'else' with 'elif GlobalVars.current_loop == 2'
+	# and add more elif's as needed, adding 1 to the contition. You will also need
+	# to change the set_stream() methods so that they play the correspond to the correct sound.
+	# For more info consult the wiki, or create an issue in the Incredidot repository.
 	match meta:
 		1:
 			if GlobalVars.current_loop == 1:
@@ -26,6 +36,10 @@ func sound_play() -> void:
 			else:
 				set_stream(GlobalVars.all_sounds[1])
 		2:
+			# If this polo had only one loop, you could do 'set_stream(GlobalVars.all_sounds[2])'
+			# directly without any if else conditionals. Although you would have to subtract 1
+			# from the index of every case below this one. In the example, the index is
+			# the number inside the '[]', which is 2 in this case.
 			if GlobalVars.current_loop == 1:
 				set_stream(GlobalVars.all_sounds[2])
 			else:
@@ -126,4 +140,5 @@ func sound_play() -> void:
 		_: # If something goes wrong...
 			sound_player.info("Cannot play any sound!")
 	
+	# After the correct sound is set, play it.
 	play()

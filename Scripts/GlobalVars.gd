@@ -24,7 +24,11 @@ var loop_seconds = 6
 var loop_amount = 2
 var current_loop = 1
 
-
+# This variable stores the amount of sounds that the mod will have.
+# To calculate this number just do 'number of polos * number of loops'.
+# If there are polos that only have one loop, subtract 1 from the total calculated
+# number for each polo that has only one loop. You will need to alter the
+# sound playing code.
 var total_sounds = 40
 
 # This varaible contains a list of all polo sounds, including extra ones.
