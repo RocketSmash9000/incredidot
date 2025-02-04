@@ -1,5 +1,5 @@
 # Incredidot
-An open source "tool" that aims for an easier experience during Incredibox mod development, as it removes most of the unnecesary work. With this tool you may now only need to add the polo sounds, animations and icons. No need to code or type anything hard to understand. Everything works out of the box.
+A free and open source "tool" that aims for an easier experience during Incredibox mod development, as it removes most of the unnecesary work. With this tool you may now only need to add the polo sounds, animations and icons. No need to code or type anything hard to understand. Everything works out of the box.
 
 ## Cloning the project
 You can choose one of these options
@@ -48,3 +48,5 @@ This project was made possible thanks to [Godot Engine](https://godotengine.org/
 The project is based off of [Incredibox](https://www.incredibox.com/) by So Far So Good. This project is by no means a replica or a replacement of the game.
 
 If you use, remix or adapt this project, the license will be considered fulfilled if you place a link to this repo (that's visible and easy to access) in your project.
+
+Proudly made without AI 😤
