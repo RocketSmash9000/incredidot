@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://ch3y0bb60blqg"]
+[gd_scene load_steps=37 format=3 uid="uid://ch3y0bb60blqg"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_gq7oe"]
 [ext_resource type="Texture2D" uid="uid://mxmy4v0cdheu" path="res://Assets/UI_elements/MenuIcon.svg" id="2_6b48f"]
@@ -38,9 +38,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6i54"]
 size = Vector2(180, 496)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4jg0"]
-size = Vector2(1920.38, 32)
 
 [node name="Parent node" type="Node2D"]
 process_mode = 3
@@ -496,26 +493,6 @@ texture_normal = ExtResource("26_4ldrl")
 script = ExtResource("9_h6ytt")
 metadata/iconID = 20
 
-[node name="TopUI" type="Area2D" parent="."]
-process_priority = 5
-process_physics_priority = 5
-position = Vector2(0, 728)
-collision_priority = 2.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TopUI"]
-position = Vector2(960.125, 16)
-shape = SubResource("RectangleShape2D_f4jg0")
-
-[node name="BottomUI" type="Area2D" parent="."]
-process_priority = 5
-process_physics_priority = 5
-position = Vector2(0, 768)
-collision_priority = 2.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomUI"]
-position = Vector2(960, 8)
-shape = SubResource("RectangleShape2D_f4jg0")
-
 [node name="Loop" type="Timer" parent="."]
 
 [connection signal="pressed" from="Static elements/CloseMenu" to="." method="_when_close_menu_pressed"]
@@ -575,8 +552,4 @@ shape = SubResource("RectangleShape2D_f4jg0")
 [connection signal="button_up" from="19" to="19" method="_when_self_button_up"]
 [connection signal="button_down" from="20" to="20" method="_when_self_button_down"]
 [connection signal="button_up" from="20" to="20" method="_when_self_button_up"]
-[connection signal="mouse_entered" from="TopUI" to="." method="_when_top_ui_mouse_entered"]
-[connection signal="mouse_exited" from="TopUI" to="." method="_when_top_ui_mouse_exited"]
-[connection signal="mouse_entered" from="BottomUI" to="." method="_when_bottom_ui_mouse_entered"]
-[connection signal="mouse_exited" from="BottomUI" to="." method="_when_bottom_ui_mouse_exited"]
 [connection signal="timeout" from="Loop" to="." method="_when_loop_timeout"]

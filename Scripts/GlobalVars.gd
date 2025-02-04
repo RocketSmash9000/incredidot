@@ -7,12 +7,6 @@ var mouse_up = false # Controls when the mouse has been unclicked
 var icon_meta = 0 # Metadata of the carried icon, aka its identifier
 var carrying_icon = false # Self-explanatory
 
-# These are used to detect whether the mouse is in the top or bottom part of the screen
-var top_detector_entered = false
-var bottom_detector_entered = false
-var top_detector_exited = false
-var bottom_detector_exited = false
-
 var mouse_in_top_part = false
 var mouse_in_bottom_part = false
 
@@ -20,26 +14,28 @@ var picked_polos = [] # Used to keep track of the polos that have been picked
 
 var reset = false # Self-explanatory
 
-# Use these to set the time in seconds it takes to complete
-# And the amount of loops it takes to return to the first loop
-# The loop indicator does not support more than 2 loops
-# So you may want to add code to implement it
-# There is a delay of around 0.05 seconds before audio plays
-# So if your sounds are 6 seconds, subtract 0.05 from it
-var loop_seconds = 5.95
+# Use these to set the time in seconds it takes to complete.
+# And the amount of loops it takes to return to the first loop.
+# The loop indicator does not support more than 2 loops.
+# So you may want to add code to implement it.
+# There may be a delay of around 0.05 seconds or less before audio plays.
+# So if your sounds are 6 seconds, try subtracting 0.01 until the desired result.
+var loop_seconds = 6
 var loop_amount = 2
 var current_loop = 1
 
 
 var total_sounds = 40
 
-# This varaible contains all polo sounds, including extra ones
+# This varaible contains a list of all polo sounds, including extra ones.
 # All polo sounds contained in this list are in order
-# meaning that index 0 corresponds to the first loop of the first polo
+# meaning that index 0 corresponds to the first loop of the first polo.
+# This is a self-managed variable. DO NOT modify it.
 var all_sounds = []
 
-# This variable contains all polo animations in the Assets folder
-# All files are in order, so index 0 is the animation for polo 1
+# This variable contains all polo animations in the Assets folder.
+# All files are in order, so index 0 is the animation for polo 1.
+# This variable is also self-managed. Do not modify it
 var polo_anims = []
 
 func _ready() -> void:
@@ -61,7 +57,7 @@ func _ready() -> void:
 	else:
 		Log.fatal("Could not access the 'Sound' path. Please check it exits and is named correctly.")
 		Log.info("Quitting automatically to prevent further errors...")
-		get_tree().quit(1)
+		get_tree().quit(1) # Error code 1 = Path to 'Sound' path not found
 	
 	if all_sounds.size() < total_sounds:
 		Log.warn("One or more sounds could not be loaded or do not exist.")
@@ -79,11 +75,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if top_detector_entered and bottom_detector_exited: # If this triggers, the mouse is in the top part
+	if get_viewport().get_mouse_position().y <= 728: # If this triggers, the mouse is in the top part
 		mouse_in_top_part = true
 		mouse_in_bottom_part = false
 	
-	if top_detector_exited and bottom_detector_entered: # If this triggers, the mouse is in the bottom part
+	if get_viewport().get_mouse_position().y > 728: # If this triggers, the mouse is in the bottom part
 		mouse_in_bottom_part = true
 		mouse_in_top_part = false
 	
