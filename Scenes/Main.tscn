@@ -130,7 +130,7 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_a6i54")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Static elements/01"]
-position = Vector2(0.450006, 4.76837e-07)
+position = Vector2(-6.19888e-06, 0)
 scale = Vector2(0.676842, 0.68)
 sprite_frames = ExtResource("13_4cg42")
 

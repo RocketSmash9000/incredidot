@@ -6,20 +6,19 @@ var local_loop
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	local_loop = GlobalVars.current_loop
-	
-	# Comment this block if you want to do some testing.
-	# If left uncommented, it will close the game if there are not enough sounds in 'res://Sound/'
-	# In case you forgot, 'GlobalVars.total_sounds' in 'res://Scripts/GlobalVars.gd' stores the
-	# amount of sounds. The value is manually set
-	if GlobalVars.all_sounds.size() < GlobalVars.total_sounds:
-		sound_player.fatal("The total amount of sounds is incorrect. Quitting before game crashes on its own...")
-		get_tree().quit(2) # Error code 2 = Total amount of sounds is less than expected
+	#if GlobalVars.all_sounds.size() < GlobalVars.total_sounds:
+		#sound_player.fatal("The total amount of sounds is incorrect. Quitting before game crashes on its own...")
+		#get_tree().quit(2) # Error code 2 = Total amount of sounds is less than expected
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if local_loop != GlobalVars.current_loop:
 		sound_play()
 		local_loop = GlobalVars.current_loop
+	
+	if GlobalVars.picked_polos.find(meta) == -1:
+		sound_player.debug("Sound corresponding to polo " + str(meta) + " not found in picked polos list! Stopping sound playback...")
+		stop()
 
 func sound_play() -> void:
 	meta = get_parent().type

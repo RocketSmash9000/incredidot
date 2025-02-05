@@ -90,6 +90,8 @@ func _when_loop_timeout() -> void:
 		# Or set it back to 1 if it's higher than the max amount of loops
 		if GlobalVars.current_loop > GlobalVars.loop_amount:
 			GlobalVars.current_loop = 1
+	else:
+		GlobalVars.reset = true # If the timer fires an alarm but the list is empty, force a reset.
 	
 	# These are used to sync the progress bar to the timer in case it is desynced
 	if $"Static elements/ProgressBar".position.x < 1736 and GlobalVars.current_loop == 2:

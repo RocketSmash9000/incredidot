@@ -13,6 +13,7 @@ var polostream
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	polostream = LogStream.new("Polo" + str(get_meta("PoloID")))
+	$Sprite2D.position.y = randi() % 85 + 48 # Creates a 'y' coordinate offset that results in the signature height difference
 	# Creates an offset for the default polo animation so that all polos are desynced
 	randomize()
 	$Sprite2D.frame = randi() % 50
@@ -53,6 +54,7 @@ func _process(_delta: float) -> void:
 			$Sprite2D.sprite_frames = default_anim
 			$Sprite2D.frame = randi() % 50
 			randomize()
+			$Sprite2D.position.y = randi() % 85 + 48
 	
 	if GlobalVars.reset: # Resets the polo when the reset is called
 		type = 0
@@ -61,11 +63,11 @@ func _process(_delta: float) -> void:
 		$Sprite2D.sprite_frames = default_anim
 		$Sprite2D.frame = randi() % 50
 		randomize()
+		$Sprite2D.position.y = randi() % 85 + 48
 	
 
 func _when_self_mouse_entered() -> void:
 	mouse_in = true
-
 
 func _when_self_mouse_exited() -> void:
 	mouse_in = false

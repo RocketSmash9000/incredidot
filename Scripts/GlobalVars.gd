@@ -90,5 +90,10 @@ func _process(_delta: float) -> void:
 	if reset:
 		await get_tree().create_timer(0.05).timeout # waits for 0.05 seconds
 		picked_polos.clear() # Clears the list containing all currently picked polos
+		current_loop = 1 # Resets the current loop to 1
 		reset = false
 		Log.debug("All polos reset!")
+	
+	# Sets the current loop to 1 if there are no picked polos
+	if picked_polos.is_empty():
+		current_loop = 1
