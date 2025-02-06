@@ -26,11 +26,11 @@ func _process(_delta: float) -> void:
 
 
 func _when_self_button_down() -> void:
-	if !used:
+	if !used: # When the polo corresponding to this icon isn't in use
 		buttonPress = true
 		GlobalVars.mouse_up = false
 		GlobalVars.carrying_icon = true
-		iconstream.debug("Icon is being carried")
+		iconstream.debug("Icon is being carried") # It will set its position to the mouse
 
 
 func _when_self_button_up() -> void:
@@ -39,7 +39,15 @@ func _when_self_button_up() -> void:
 		buttonPress = false
 		GlobalVars.mouse_up = true # Mouse button has been released
 		GlobalVars.icon_meta = get_meta("iconID")
-		position = originalPos # Return the icon to its original place
+		
+		# These 'animator' calls will return the icon to its original place with a nice animation
+		var animator = create_tween()
+		animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
+		animator.set_ease(Tween.EASE_OUT)
+		animator.tween_property(self, "position", originalPos, 0.1)
+		animator.play()
+		await get_tree().create_timer(0.11).timeout
+		animator.kill()
 	
 	if get_meta("iconID") not in GlobalVars.picked_polos:
 		GlobalVars.carrying_icon = false
