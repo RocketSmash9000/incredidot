@@ -1,6 +1,8 @@
 # Incredidot
 A free and open source "tool" that aims for an easier experience during Incredibox mod development, as it removes most of the unnecesary work. With this tool you may now only need to add the polo sounds, animations and icons. No need to code or type anything hard to understand. Everything works out of the box.
 
+If you end up using this project, let me know what awesome stuff you've made with it! :D
+
 ## Cloning the project
 You can choose one of these options
 
