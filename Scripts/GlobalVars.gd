@@ -88,7 +88,7 @@ func _process(_delta: float) -> void:
 		mouse_in_top_part = false
 	
 	if reset:
-		await get_tree().create_timer(0.05).timeout # waits for 0.05 seconds
+		await get_tree().create_timer(0.005).timeout # waits for 0.05 seconds
 		picked_polos.clear() # Clears the list containing all currently picked polos
 		current_loop = 1 # Resets the current loop to 1
 		reset = false

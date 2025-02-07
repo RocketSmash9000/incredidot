@@ -13,7 +13,16 @@ var polostream
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	polostream = LogStream.new("Polo" + str(get_meta("PoloID")))
-	$Sprite2D.position.y = randi() % 85 + 48 # Creates a 'y' coordinate offset that results in the signature height difference. 85 is tiny and 48 is tall. Counterintuitive, but that's Godot for you.
+	# Creates a 'y' coordinate offset that results in the signature height difference. 85 is tiny and 48 is tall. Counterintuitive, but that's Godot for you.
+	# Anyway, all polos do the appearing thing when first booting the project
+	$Sprite2D.position.y = 504
+	await get_tree().create_timer(sqrt(get_meta("PoloID"))/10).timeout
+	var animator = create_tween()
+	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
+	animator.set_trans(Tween.TRANS_EXPO)
+	animator.set_ease(Tween.EASE_OUT)
+	animator.tween_property($Sprite2D, "position", Vector2($Sprite2D.position.x, randi() % 85 + 48), 0.5)
+	animator.play()
 	# Creates an offset for the default polo animation so that all polos are desynced
 	randomize()
 	$Sprite2D.frame = randi() % 50
@@ -51,19 +60,33 @@ func _process(_delta: float) -> void:
 			GlobalVars.mouse_up = false
 			$AudioStreamPlayer.stop()
 			# Returns to its default animation when unpicked
+			var animator = create_tween()
+			animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
+			animator.set_trans(Tween.TRANS_EXPO)
+			animator.set_ease(Tween.EASE_OUT)
+			animator.tween_property($Sprite2D, "position", Vector2($Sprite2D.position.x, 504), 0.2)
+			animator.play()
 			$Sprite2D.sprite_frames = default_anim
 			$Sprite2D.frame = randi() % 50
 			randomize()
-			$Sprite2D.position.y = randi() % 85 + 48
+			animator.tween_property($Sprite2D, "position", Vector2($Sprite2D.position.x, randi() % 85 + 48), 0.2)
+			animator.play()
 	
 	if GlobalVars.reset: # Resets the polo when the reset is called
 		type = 0
 		picked = false
 		$AudioStreamPlayer.stop()
+		var animator = create_tween()
+		animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
+		animator.set_trans(Tween.TRANS_EXPO)
+		animator.set_ease(Tween.EASE_OUT)
+		animator.tween_property($Sprite2D, "position", Vector2($Sprite2D.position.x, 504), 0.2)
+		animator.play()
 		$Sprite2D.sprite_frames = default_anim
 		$Sprite2D.frame = randi() % 50
 		randomize()
-		$Sprite2D.position.y = randi() % 85 + 48
+		animator.tween_property($Sprite2D, "position", Vector2($Sprite2D.position.x, randi() % 85 + 48), 0.5)
+		animator.play()
 	
 
 func _when_self_mouse_entered() -> void:
