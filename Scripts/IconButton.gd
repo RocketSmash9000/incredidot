@@ -46,8 +46,6 @@ func _when_self_button_up() -> void:
 		animator.set_ease(Tween.EASE_OUT)
 		animator.tween_property(self, "position", originalPos, 0.1)
 		animator.play()
-		await get_tree().create_timer(0.11).timeout
-		animator.kill()
 	
 	if get_meta("iconID") not in GlobalVars.picked_polos:
 		GlobalVars.carrying_icon = false

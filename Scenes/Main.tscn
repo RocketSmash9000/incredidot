@@ -37,7 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://cu6xtwls4mqs3" path="res://Assets/20/PoloIcon.svg" id="26_4ldrl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6i54"]
-size = Vector2(180, 496)
+size = Vector2(180, 448)
 
 [node name="Parent node" type="Node2D"]
 process_mode = 3
@@ -126,11 +126,11 @@ metadata/PoloID = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/01"]
 z_index = 1
-position = Vector2(0, -16)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_a6i54")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Static elements/01"]
-position = Vector2(-6.19888e-06, 0)
+modulate = Color(1, 1, 1, 0.941176)
 scale = Vector2(0.676842, 0.68)
 sprite_frames = ExtResource("13_4cg42")
 
@@ -145,10 +145,11 @@ metadata/PoloID = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/02"]
 z_index = 1
-position = Vector2(0, -16)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_a6i54")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Static elements/02"]
+modulate = Color(1, 1, 1, 0.941176)
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.68, 0.68)
 sprite_frames = ExtResource("13_4cg42")
@@ -164,10 +165,11 @@ metadata/PoloID = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/03"]
 z_index = 1
-position = Vector2(0, -16)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_a6i54")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Static elements/03"]
+modulate = Color(1, 1, 1, 0.941176)
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.68, 0.68)
 sprite_frames = ExtResource("13_4cg42")
@@ -183,10 +185,11 @@ metadata/PoloID = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/04"]
 z_index = 1
-position = Vector2(0, -16)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_a6i54")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Static elements/04"]
+modulate = Color(1, 1, 1, 0.941176)
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.68, 0.68)
 sprite_frames = ExtResource("13_4cg42")
@@ -202,10 +205,11 @@ metadata/PoloID = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/05"]
 z_index = 1
-position = Vector2(0, -16)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_a6i54")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Static elements/05"]
+modulate = Color(1, 1, 1, 0.941176)
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.68, 0.68)
 sprite_frames = ExtResource("13_4cg42")
@@ -221,10 +225,11 @@ metadata/PoloID = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/06"]
 z_index = 1
-position = Vector2(0, -16)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_a6i54")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Static elements/06"]
+modulate = Color(1, 1, 1, 0.941176)
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.68, 0.68)
 sprite_frames = ExtResource("13_4cg42")
@@ -240,10 +245,11 @@ metadata/PoloID = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static elements/07"]
 z_index = 1
-position = Vector2(0, -16)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_a6i54")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Static elements/07"]
+modulate = Color(1, 1, 1, 0.941176)
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.68, 0.68)
 sprite_frames = ExtResource("13_4cg42")
@@ -264,13 +270,14 @@ horizontal_alignment = 2
 uppercase = true
 
 [node name="Version" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.117647)
 z_index = 10
 offset_left = 8.0
 offset_top = 1048.0
 offset_right = 238.0
 offset_bottom = 1093.0
 scale = Vector2(0.6, 0.6)
-text = "Incredidot v0.2"
+text = "Incredidot v0.3"
 horizontal_alignment = 1
 
 [node name="01" type="TextureButton" parent="."]

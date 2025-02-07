@@ -13,7 +13,7 @@ var polostream
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	polostream = LogStream.new("Polo" + str(get_meta("PoloID")))
-	$Sprite2D.position.y = randi() % 85 + 48 # Creates a 'y' coordinate offset that results in the signature height difference
+	$Sprite2D.position.y = randi() % 85 + 48 # Creates a 'y' coordinate offset that results in the signature height difference. 85 is tiny and 48 is tall. Counterintuitive, but that's Godot for you.
 	# Creates an offset for the default polo animation so that all polos are desynced
 	randomize()
 	$Sprite2D.frame = randi() % 50

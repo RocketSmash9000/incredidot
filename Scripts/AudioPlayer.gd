@@ -39,6 +39,8 @@ func sound_play() -> void:
 			# directly without any if else conditionals. Although you would have to subtract 1
 			# from the index of every case below this one. In the example, the index is
 			# the number inside the '[]', which is 2 in this case.
+			# You would also need to alter the 'total_sounds' variable in GlobalVars.gd
+			# though I assume you know already because you've read the comments, haven't you?
 			if GlobalVars.current_loop == 1:
 				set_stream(GlobalVars.all_sounds[2])
 			else:

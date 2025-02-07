@@ -6,7 +6,7 @@ var debug_text = ""
 var show_menu = false # Self-explanatory
 var hide_menu = false
 
-var once = true
+var once = true # used to trigger stuff only once. Yk, code executing every frame.
 
 # Called every time the node gets loaded into a scene.
 func _ready() -> void:
@@ -31,35 +31,38 @@ func _process(delta: float) -> void:
 		$"Static elements/Debug".text = (debug_text)
 	
 	if show_menu: # Shows the menu when the menu button is pressed
+		Log.debug("Showing menu...")
 		toggle_progressbar_visibility(false)
-		$"Static elements/ResetButton".position.x += 60
-		$"Static elements/CloseMenu".position.x += 60
-		$"Static elements/MenuIcon".position.x += 60
-		
-		if $"Static elements/CloseMenu".position.x >= 1800:
-			show_menu = false
-			$"Static elements/MenuIcon".position.x = 1952
-			$"Static elements/CloseMenu".position.x = 1808
-			$"Static elements/ResetButton".position.x = 24
+		var animator = create_tween()
+		animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
+		animator.set_trans(Tween.TRANS_SINE)
+		animator.set_ease(Tween.EASE_IN_OUT)
+		animator.set_parallel(true)
+		animator.tween_property($"Static elements/CloseMenu", "position", Vector2(1808, 16), 0.5)
+		animator.tween_property($"Static elements/ResetButton", "position", Vector2(24, 16), 0.5)
+		animator.tween_property($"Static elements/MenuIcon", "position", Vector2(1952, 16), 0.5)
+		animator.play()
+		show_menu = false
 	
 	if hide_menu: # Hides the menu when the close menu button is pressed
+		Log.debug("Hiding menu...")
 		toggle_progressbar_visibility(true)
-		$"Static elements/ResetButton".position.x -= 60
-		$"Static elements/CloseMenu".position.x -= 60
-		$"Static elements/MenuIcon".position.x -= 60
-		
-		if $"Static elements/MenuIcon".position.x <= 16:
-			hide_menu = false
-			$"Static elements/MenuIcon".position.x = 16
-			$"Static elements/CloseMenu".position.x = -128
-			$"Static elements/ResetButton".position.x = -1912
+		var animator2 = create_tween()
+		animator2.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
+		animator2.set_trans(Tween.TRANS_SINE)
+		animator2.set_ease(Tween.EASE_IN_OUT)
+		animator2.set_parallel(true)
+		animator2.tween_property($"Static elements/CloseMenu", "position", Vector2(-128, 16), 0.5)
+		animator2.tween_property($"Static elements/ResetButton", "position", Vector2(-1912, 16), 0.5)
+		animator2.tween_property($"Static elements/MenuIcon", "position", Vector2(16, 16), 0.5)
+		animator2.play()
+		hide_menu = false
 	
 	# Delete or comment out this block in case you don't want the progress bar, or prefer using a custom one
 	if !GlobalVars.picked_polos.is_empty():
 		$"Static elements/ProgressBar".position.x += (448/(GlobalVars.loop_seconds*GlobalVars.loop_amount))*delta
 	if $"Static elements/ProgressBar".position.x >= 1960 or GlobalVars.picked_polos.is_empty():
 		$"Static elements/ProgressBar".position.x = 1512
-	
 	
 	
 	# Once there are polos, start a timer
