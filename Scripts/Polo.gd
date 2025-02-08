@@ -43,10 +43,10 @@ func _process(_delta: float) -> void:
 			$AudioStreamPlayer.sound_play()
 			if GlobalVars.current_loop == 1:
 				# Sets the polo animation to its corresponding type
-				$Sprite2D.sprite_frames = GlobalVars.polo_anims[type]
+				$Sprite2D.sprite_frames = GlobalVars.set_polo_animation(type)
 				polostream.debug("Animation for 1st loop set!")
 			else:
-				$Sprite2D.sprite_frames = GlobalVars.polo_anims[type]
+				$Sprite2D.sprite_frames = GlobalVars.set_polo_animation(type)
 				# If animation FPS = 30 and loop = 6s, frame for next loop = 180
 				$Sprite2D.frame = 180
 				polostream.debug("Animation for 2nd loop set!")
@@ -80,7 +80,7 @@ func _process(_delta: float) -> void:
 		animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 		animator.set_trans(Tween.TRANS_EXPO)
 		animator.set_ease(Tween.EASE_OUT)
-		animator.tween_property($Sprite2D, "position", Vector2($Sprite2D.position.x, 504), 0.2)
+		animator.tween_property($Sprite2D, "position", Vector2($Sprite2D.position.x, 504), 0.1)
 		animator.play()
 		$Sprite2D.sprite_frames = default_anim
 		$Sprite2D.frame = randi() % 50

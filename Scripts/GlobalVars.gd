@@ -37,44 +37,8 @@ var total_sounds = 40
 # This is a self-managed variable. DO NOT modify it.
 var all_sounds = []
 
-# This variable contains all polo animations in the Assets folder.
-# All files are in order, so index 0 is the animation for polo 1.
-# This variable is also self-managed. Do not modify it
-var polo_anims = []
-
 func _ready() -> void:
-	# Loads and adds every sound in the "Sound" directory to the all_sounds var
-	# May be difficult to understand
-	# Ignores files inside other directories
-	var sound_dir = DirAccess.open("res://Sound/") # Change this path if you have a custom sound folder
-	if sound_dir:
-		sound_dir.list_dir_begin()
-		var file_name = sound_dir.get_next()
-		while file_name != "":
-			if sound_dir.current_is_dir():
-				pass
-			else:
-				if !file_name.begins_with(".") and !file_name.ends_with(".import") and !file_name.ends_with(".md"):
-					all_sounds.append(load("res://Sound/" + file_name))
-					Log.debug("Added and loaded " + "res://Sound/" + file_name)
-			file_name = sound_dir.get_next()
-	else:
-		Log.fatal("Could not access the 'Sound' path. Please check it exits and is named correctly.")
-		Log.info("Quitting automatically to prevent further errors...")
-		get_tree().quit(1) # Error code 1 = Path to 'Sound' path not found
-	
-	if all_sounds.size() < total_sounds:
-		Log.warn("One or more sounds could not be loaded or do not exist.")
-	elif all_sounds.size() > total_sounds:
-		Log.info("There are more sounds than polos. It won't break a thing, but the sounds occupy useless space")
-	
-	# This block loads all polo animations for later use
-	# This forces all animations to be in a numbered folder with the name being the same as the name of its folder
-	for h in range(1, (total_sounds/2) +1):
-		polo_anims.append(load("res://Assets/" + str(h) + "/" + str(h) + ".tres"))
-	
-	# Note: to make animations you will need to put all individual frames in the
-	# same folder as the animation file corresponding to each polo
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -97,3 +61,46 @@ func _process(_delta: float) -> void:
 	# Sets the current loop to 1 if there are no picked polos
 	if picked_polos.is_empty():
 		current_loop = 1
+
+func set_polo_animation(meta):
+	match meta:
+		1:
+			return load("res://Assets/1/1.tres")
+		2:
+			return load("res://Assets/2/2.tres")
+		3:
+			return load("res://Assets/3/3.tres")
+		4:
+			return load("res://Assets/4/4.tres")
+		5:
+			return load("res://Assets/5/5.tres")
+		6:
+			return load("res://Assets/6/6.tres")
+		7:
+			return load("res://Assets/7/7.tres")
+		8:
+			return load("res://Assets/8/8.tres")
+		9:
+			return load("res://Assets/9/9.tres")
+		10:
+			return load("res://Assets/10/10.tres")
+		11:
+			return load("res://Assets/11/11.tres")
+		12:
+			return load("res://Assets/12/12.tres")
+		13:
+			return load("res://Assets/13/13.tres")
+		14:
+			return load("res://Assets/14/14.tres")
+		15:
+			return load("res://Assets/15/15.tres")
+		16:
+			return load("res://Assets/16/16.tres")
+		17:
+			return load("res://Assets/17/17.tres")
+		18:
+			return load("res://Assets/18/18.tres")
+		19:
+			return load("res://Assets/19/19.tres")
+		20:
+			return load("res://Assets/20/20.tres")

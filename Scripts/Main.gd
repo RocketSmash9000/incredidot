@@ -25,9 +25,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug_key"): # Shows debug info node
 		$"Static elements/Debug".visible = !$"Static elements/Debug".visible
 	
-	debug_text = "Mouse up: " + str(GlobalVars.mouse_up) + "\n" + "Carrying: " + str(GlobalVars.carrying_icon) + "\n" + "Picked polos: " + str(GlobalVars.picked_polos) + "\n" + "Mouse in top: " + str(GlobalVars.mouse_in_top_part) + "\n" + "Mouse in bottom: " + str(GlobalVars.mouse_in_bottom_part) + "\n" + "Icon meta: " + str(GlobalVars.icon_meta) + "\n" + "Reset: " + str(GlobalVars.reset) + "\n" + "Current loop: " + str(GlobalVars.current_loop)
-	
 	if $"Static elements/Debug".visible: # Displays a bunch of text in real time
+		debug_text = "Mouse up: " + str(GlobalVars.mouse_up) + "\n" + "Carrying: " + str(GlobalVars.carrying_icon) + "\n" + "Picked polos: " + str(GlobalVars.picked_polos) + "\n" + "Mouse in top: " + str(GlobalVars.mouse_in_top_part) + "\n" + "Mouse in bottom: " + str(GlobalVars.mouse_in_bottom_part) + "\n" + "Icon meta: " + str(GlobalVars.icon_meta) + "\n" + "Reset: " + str(GlobalVars.reset) + "\n" + "Current loop: " + str(GlobalVars.current_loop)
 		$"Static elements/Debug".text = (debug_text)
 	
 	if show_menu: # Shows the menu when the menu button is pressed

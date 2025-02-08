@@ -6,7 +6,7 @@ var local_loop
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	local_loop = GlobalVars.current_loop
-	#if GlobalVars.all_sounds.size() < GlobalVars.total_sounds:
+	#if load("res://Sound/V5 FitnessGram 1.mp3").size() < GlobalVars.total_sounds:
 		#sound_player.fatal("The total amount of sounds is incorrect. Quitting before game crashes on its own...")
 		#get_tree().quit(2) # Error code 2 = Total amount of sounds is less than expected
 
@@ -30,111 +30,113 @@ func sound_play() -> void:
 	# For more info consult the wiki, or create an issue in the Incredidot repository.
 	match meta:
 		1:
+			# For each individual sound you will have to substitute every '"res://Sound/V5 FitnessGram 1.mp3"' with
+			# the path to your desired sound, since the previous method didn't work for exported mods.
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[0])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[1])
+				set_stream(load("res://Sound/V5 FitnessGram 2.mp3"))
 		2:
-			# If this polo had only one loop, you could do 'set_stream(GlobalVars.all_sounds[2])'
+			# If this polo had only one loop, you could do 'set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))'
 			# directly without any if else conditionals. Although you would have to subtract 1
 			# from the index of every case below this one. In the example, the index is
 			# the number inside the '[]', which is 2 in this case.
 			# You would also need to alter the 'total_sounds' variable in GlobalVars.gd
 			# though I assume you know already because you've read the comments, haven't you?
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[2])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[3])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		3:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[4])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[5])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		4:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[6])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[7])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		5:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[8])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[9])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		6:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[10])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[11])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		7:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[12])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[13])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		8:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[14])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[15])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		9:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[16])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[17])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		10:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[18])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[19])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		11:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[20])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[21])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		12:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[22])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[23])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		13:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[24])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[25])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		14:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[26])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[27])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		15:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[28])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[29])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		16:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[30])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[31])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		17:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[32])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[33])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		18:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[34])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[35])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		19:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[36])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[37])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		20:
 			if GlobalVars.current_loop == 1:
-				set_stream(GlobalVars.all_sounds[38])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(GlobalVars.all_sounds[39])
+				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 		# Paste more blocks below here if needed
 		
 		# Paste more blocks above here if needed
