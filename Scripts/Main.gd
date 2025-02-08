@@ -8,6 +8,8 @@ var hide_menu = false
 
 var once = true # used to trigger stuff only once. Yk, code executing every frame.
 
+var first_polo = true # True when there are no polos picked
+
 # Called every time the node gets loaded into a scene.
 func _ready() -> void:
 	# Sets the wait time of the timer to the duration of a loop
@@ -73,6 +75,9 @@ func _process(delta: float) -> void:
 	if (!once and GlobalVars.picked_polos.is_empty()) or GlobalVars.reset:
 		$Loop.stop()
 		once = true
+	
+	if !first_polo and GlobalVars.picked_polos.is_empty():
+		first_polo = true # Sets this variable to true when there are no picked polos
 
 # These need no explanation whatsoever, I think
 func _when_menu_icon_pressed() -> void:

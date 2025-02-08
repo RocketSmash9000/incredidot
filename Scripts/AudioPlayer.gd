@@ -1,19 +1,24 @@
 extends AudioStreamPlayer
 
 var meta
-var sound_player = LogStream.new("Polo/SoundPlayer")
+var sound_player
 var local_loop
+
+var already_playing = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	local_loop = GlobalVars.current_loop
-	#if load("res://Sound/V5 FitnessGram 1.mp3").size() < GlobalVars.total_sounds:
-		#sound_player.fatal("The total amount of sounds is incorrect. Quitting before game crashes on its own...")
-		#get_tree().quit(2) # Error code 2 = Total amount of sounds is less than expected
+	sound_player = LogStream.new("Polo/SoundPlayer" + str(get_meta("AudioID")))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if local_loop != GlobalVars.current_loop:
-		sound_play()
+		if $"../../..".first_polo:
+			sound_play()
+			$"../../..".first_polo = false
+			already_playing = true
+		elif already_playing:
+			sound_play()
 		local_loop = GlobalVars.current_loop
 	
 	if GlobalVars.picked_polos.find(meta) == -1:
@@ -21,7 +26,7 @@ func _process(delta: float) -> void:
 		stop()
 
 func sound_play() -> void:
-	meta = get_parent().type
+	meta = get_parent().type # Save the ID of the sound to play stored in the polo
 	sound_player.debug("Meta = " + str(meta))
 	
 	# In case your mod has more than 2 loops, replace the 'else' with 'elif GlobalVars.current_loop == 2'
@@ -141,7 +146,11 @@ func sound_play() -> void:
 		
 		# Paste more blocks above here if needed
 		_: # If something goes wrong...
-			sound_player.info("Cannot play any sound!")
+			sound_player.debug("Cannot play any sound!")
 	
-	# After the correct sound is set, play it.
-	play()
+	if !$"../../..".first_polo and !already_playing and !GlobalVars.picked_polos.is_empty():
+		await $"../../../Loop".timeout
+		play()
+	else:
+		play()
+		already_playing = true

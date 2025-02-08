@@ -137,6 +137,7 @@ sprite_frames = ExtResource("13_4cg42")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/01"]
 bus = &"01"
 script = ExtResource("14_futju")
+metadata/AudioID = 1
 
 [node name="02" type="Area2D" parent="Static elements"]
 position = Vector2(448, 496)
@@ -157,6 +158,7 @@ sprite_frames = ExtResource("13_4cg42")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/02"]
 bus = &"02"
 script = ExtResource("14_futju")
+metadata/AudioID = 2
 
 [node name="03" type="Area2D" parent="Static elements"]
 position = Vector2(704, 496)
@@ -177,6 +179,7 @@ sprite_frames = ExtResource("13_4cg42")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/03"]
 bus = &"03"
 script = ExtResource("14_futju")
+metadata/AudioID = 3
 
 [node name="04" type="Area2D" parent="Static elements"]
 position = Vector2(960, 496)
@@ -197,6 +200,7 @@ sprite_frames = ExtResource("13_4cg42")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/04"]
 bus = &"04"
 script = ExtResource("14_futju")
+metadata/AudioID = 4
 
 [node name="05" type="Area2D" parent="Static elements"]
 position = Vector2(1216, 496)
@@ -217,6 +221,7 @@ sprite_frames = ExtResource("13_4cg42")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/05"]
 bus = &"05"
 script = ExtResource("14_futju")
+metadata/AudioID = 5
 
 [node name="06" type="Area2D" parent="Static elements"]
 position = Vector2(1472, 496)
@@ -237,6 +242,7 @@ sprite_frames = ExtResource("13_4cg42")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/06"]
 bus = &"06"
 script = ExtResource("14_futju")
+metadata/AudioID = 6
 
 [node name="07" type="Area2D" parent="Static elements"]
 position = Vector2(1728, 496)
@@ -257,6 +263,7 @@ sprite_frames = ExtResource("13_4cg42")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/07"]
 bus = &"07"
 script = ExtResource("14_futju")
+metadata/AudioID = 7
 
 [node name="Debug" type="Label" parent="Static elements"]
 visible = false

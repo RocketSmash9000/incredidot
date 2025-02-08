@@ -53,12 +53,14 @@ func _process(_delta: float) -> void:
 			local_loop = GlobalVars.current_loop
 	
 		if Input.is_action_just_pressed("ui_click") and !GlobalVars.carrying_icon and picked:
+			# This makes the polo become unselected again
 			polostream.debug("Polo number " + str(get_meta("PoloID")) + " unpicked")
 			GlobalVars.picked_polos.erase(type) # Removes polo type from used list
 			type = 0 # Returns itself to original value
 			picked = false # Sets polo to unused state
 			GlobalVars.mouse_up = false
 			$AudioStreamPlayer.stop()
+			$AudioStreamPlayer.already_playing = false
 			# Returns to its default animation when unpicked
 			var animator = create_tween()
 			animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
