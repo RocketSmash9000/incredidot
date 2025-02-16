@@ -14,10 +14,10 @@ var first_polo = true # True when there are no polos picked
 @onready var background = $"Static elements/Background"
 
 # Change this if you want your background to react more aggresively
-var brightness_sensitivity: float = 1.0
+var brightness_sensitivity: float = 1
 
 # Higher values will (probably) result in faster speeds when returning to original value
-var smoothing_speed: float = 5.0
+var smoothing_speed: float = 10
 
 # Called every time the node gets loaded into a scene.
 func _ready() -> void:
@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 		$"Static elements/Debug".visible = !$"Static elements/Debug".visible
 	
 	if $"Static elements/Debug".visible: # Displays a bunch of text in real time
-		debug_text = "Mouse up: " + str(GlobalVars.mouse_up) + "\n" + "Carrying: " + str(GlobalVars.carrying_icon) + "\n" + "Picked polos: " + str(GlobalVars.picked_polos) + "\n" + "Mouse in top: " + str(GlobalVars.mouse_in_top_part) + "\n" + "Mouse in bottom: " + str(GlobalVars.mouse_in_bottom_part) + "\n" + "Icon meta: " + str(GlobalVars.icon_meta) + "\n" + "Reset: " + str(GlobalVars.reset) + "\n" + "Current loop: " + str(GlobalVars.current_loop)
+		debug_text = "Mouse up: " + str(GlobalVars.mouse_up) + "\n" + "Carrying: " + str(GlobalVars.carrying_icon) + "\n" + "Picked polos: " + str(GlobalVars.picked_polos) + "\n" + "Mouse in top: " + str(GlobalVars.mouse_in_top_part) + "\n" + "Mouse in bottom: " + str(GlobalVars.mouse_in_bottom_part) + "\n" + "Icon meta: " + str(GlobalVars.icon_meta) + "\n" + "Reset: " + str(GlobalVars.reset) + "\n" + "Current loop: " + str(GlobalVars.current_loop) + "\n" + "First polo: " + str(first_polo)
 		$"Static elements/Debug".text = (debug_text)
 	
 	if show_menu: # Shows the menu when the menu button is pressed

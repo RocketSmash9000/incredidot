@@ -160,7 +160,6 @@ sprite_frames = ExtResource("13_4cg42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static elements/01"]
 bus = &"01"
-script = ExtResource("14_futju")
 metadata/AudioID = 1
 
 [node name="02" type="Area2D" parent="Static elements"]

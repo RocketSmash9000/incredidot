@@ -53,6 +53,8 @@ func _process(_delta: float) -> void:
 				$Sprite2D.frame = 180
 				$Sprite2D.play("default")
 				polostream.debug("Animation for 2nd loop set!")
+			if $"../..".first_polo:
+				$"../..".first_polo = false
 			local_loop = GlobalVars.current_loop
 	
 		if Input.is_action_just_pressed("ui_click") and !GlobalVars.carrying_icon and picked:

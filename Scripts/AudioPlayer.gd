@@ -20,14 +20,15 @@ func _process(_delta: float) -> void:
 		elif already_playing:
 			sound_play()
 		local_loop = GlobalVars.current_loop
-	
-	if GlobalVars.picked_polos.find(meta) == -1:
-		sound_player.debug("Sound corresponding to polo " + str(meta) + " not found in picked polos list! Stopping sound playback...")
-		stop()
 
 func sound_play() -> void:
 	meta = get_parent().type # Save the ID of the sound to play stored in the polo
-	sound_player.debug("Meta = " + str(meta))
+	sound_player.info("Meta = " + str(meta))
+	
+	#if GlobalVars.picked_polos.find(meta) == -1:
+		#sound_player.info("Sound corresponding to polo " + str(meta) + " not found in picked polos list! Stopping sound playback...")
+		#stop()
+		#return
 	
 	# In case your mod has more than 2 loops, replace the 'else' with 'elif GlobalVars.current_loop == 2'
 	# and add more elif's as needed, adding 1 to the contition. You will also need
@@ -38,9 +39,9 @@ func sound_play() -> void:
 			# For each individual sound you will have to substitute every '"res://Sound/V5 FitnessGram 1.mp3"' with
 			# the path to your desired sound, since the previous method didn't work for exported mods.
 			if GlobalVars.current_loop == 1:
-				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
+				set_stream(load("res://Sound/B3 Redbird 1.mp3"))
 			else:
-				set_stream(load("res://Sound/V5 FitnessGram 2.mp3"))
+				set_stream(load("res://Sound/B3 Redbird 2.mp3"))
 		2:
 			# If this polo had only one loop, you could do 'set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))'
 			# directly without any if else conditionals. Although you would have to subtract 1
@@ -51,7 +52,7 @@ func sound_play() -> void:
 			if GlobalVars.current_loop == 1:
 				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
 			else:
-				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
+				set_stream(load("res://Sound/V5 FitnessGram 2.mp3"))
 		3:
 			if GlobalVars.current_loop == 1:
 				set_stream(load("res://Sound/V5 FitnessGram 1.mp3"))
@@ -146,11 +147,12 @@ func sound_play() -> void:
 		
 		# Paste more blocks above here if needed
 		_: # If something goes wrong...
-			sound_player.debug("Cannot play any sound!")
+			sound_player.info("Cannot play any sound!")
 	
 	if !$"../../..".first_polo and !already_playing and !GlobalVars.picked_polos.is_empty():
 		await $"../../../Loop".timeout
 		play()
+		already_playing = true
 	else:
 		play()
 		already_playing = true
