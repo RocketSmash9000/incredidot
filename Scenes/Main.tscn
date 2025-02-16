@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ch3y0bb60blqg"]
+[gd_scene load_steps=40 format=3 uid="uid://ch3y0bb60blqg"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_gq7oe"]
 [ext_resource type="Texture2D" uid="uid://mxmy4v0cdheu" path="res://Assets/UI_elements/MenuIcon.svg" id="2_6b48f"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b0x5rjxki7vfq" path="res://Assets/UI_elements/Shadow.svg" id="5_vmgcj"]
 [ext_resource type="Script" path="res://Scripts/Polo.gd" id="6_7jw41"]
 [ext_resource type="Texture2D" uid="uid://di08ce7wo85n4" path="res://Assets/UI_elements/CancelMenu.svg" id="6_bjk0m"]
+[ext_resource type="Shader" path="res://Assets/UI_elements/BackgroundShader.gdshader" id="7_2xb8m"]
 [ext_resource type="Texture2D" uid="uid://ddwe0xjn3tdpj" path="res://Assets/1/PoloIcon.svg" id="7_61pjy"]
 [ext_resource type="Texture2D" uid="uid://euj6c37gnwys" path="res://Assets/UI_elements/ResetIcon.svg" id="7_nfm6i"]
 [ext_resource type="Texture2D" uid="uid://dml7v32sigwg4" path="res://Assets/2/PoloIcon.svg" id="8_74mqa"]
@@ -35,6 +36,27 @@
 [ext_resource type="Texture2D" uid="uid://duxpluw0lfv1y" path="res://Assets/18/PoloIcon.svg" id="24_82h5w"]
 [ext_resource type="Texture2D" uid="uid://oqp1bhsch15k" path="res://Assets/19/PoloIcon.svg" id="25_mdvuw"]
 [ext_resource type="Texture2D" uid="uid://cu6xtwls4mqs3" path="res://Assets/20/PoloIcon.svg" id="26_4ldrl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x3emk"]
+shader = ExtResource("7_2xb8m")
+shader_parameter/brightness = 0.0
+
+[sub_resource type="GDScript" id="GDScript_krh5s"]
+script/source = "extends Sprite2D
+
+const VU_COUNT = 16
+const FREQ_MAX = 11050.0
+const MIN_DB = 60
+
+var spectrum
+
+func _ready() -> void:
+	spectrum = AudioServer.get_bus_effect_instance(0, 0)
+
+
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6i54"]
 size = Vector2(180, 448)
@@ -83,9 +105,11 @@ scale = Vector2(1.00417, 0.814371)
 texture = ExtResource("4_rxtr7")
 
 [node name="Background" type="Sprite2D" parent="Static elements"]
+material = SubResource("ShaderMaterial_x3emk")
 position = Vector2(960, 422.5)
 scale = Vector2(1, 1.19656)
 texture = ExtResource("4_7vdf6")
+script = SubResource("GDScript_krh5s")
 
 [node name="Shadow" type="Sprite2D" parent="Static elements"]
 position = Vector2(964, 915)
