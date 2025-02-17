@@ -13,14 +13,14 @@ config_version=5
 config/name="incredidot"
 config/description="An open source \"tool\" that aims for an easier experience during Incredibox mod development"
 config/version="0.3"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Scenes/info.tscn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.3", "GL Compatibility")
 run/max_fps=120
 boot_splash/bg_color=Color(0, 0, 0.12549, 1)
 boot_splash/image="res://splash.png"
 config/icon="res://icon.png"
-boot_splash/minimum_display_time=500
+boot_splash/minimum_display_time=100
 
 [audio]
 
