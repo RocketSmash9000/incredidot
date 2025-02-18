@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://biyh28ioiicg1"]
 
-[ext_resource type="Texture2D" uid="uid://3m8kdr3xigog" path="res://Assets/UI_elements/credits_screen.png" id="1_siff3"]
-[ext_resource type="Texture2D" uid="uid://d18fgew8ms67o" path="res://Assets/UI_elements/close.png" id="2_l1424"]
+[ext_resource type="Texture2D" uid="uid://3m8kdr3xigog" path="res://Assets/UI_elements/Info/credits_screen.png" id="1_siff3"]
+[ext_resource type="Texture2D" uid="uid://d18fgew8ms67o" path="res://Assets/UI_elements/Info/close.png" id="2_l1424"]
 
 [node name="Credits" type="Node2D"]
 
