@@ -27,15 +27,15 @@
      inkscape:pagecheckerboard="1"
      inkscape:deskcolor="#505050"
      inkscape:document-units="px"
-     inkscape:zoom="0.5453125"
-     inkscape:cx="2088.7106"
-     inkscape:cy="-811.46132"
-     inkscape:window-width="2560"
-     inkscape:window-height="1411"
-     inkscape:window-x="1911"
+     inkscape:zoom="3.0847533"
+     inkscape:cx="1739.8474"
+     inkscape:cy="-114.2717"
+     inkscape:window-width="1920"
+     inkscape:window-height="1171"
+     inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer4" />
+     inkscape:current-layer="layer3" />
   <defs
      id="defs1">
     <rect
@@ -328,12 +328,18 @@
      inkscape:label="Capa 3">
     <path
        id="rect5"
-       style="fill:#17202c;fill-opacity:1;stroke:#17202c;stroke-width:2.9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-opacity:1"
-       d="m 1646.9707,-129.035 h 185.3091 c 10.0572,0 18.1538,13.29673 18.1538,23.35394 v 11.670301 h -221.6167 v -11.670301 c 0,-10.05721 8.0966,-23.35394 18.1538,-23.35394 z"
-       sodipodi:nodetypes="sssccss" />
+       style="fill:#17202c;fill-opacity:1;stroke:#17202c;stroke-width:4.37086;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-opacity:1"
+       d="m 1655.3266,-128.29957 h 167.0103 c 15.1581,0 27.3613,20.04072 27.3613,35.198869 v 17.589383 h -221.7327 l -10e-5,-17.589383 c -2e-4,-15.158149 12.2031,-35.198869 27.3612,-35.198869 z"
+       sodipodi:nodetypes="sssccss"
+       inkscape:export-filename="..\Main\CtrlMenu\CtrlMenu.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <g
        id="g6"
-       transform="matrix(0.54587731,0,0,0.54587731,821.52936,-126.34774)">
+       transform="matrix(0.85652071,0,0,0.85652071,252.0273,-109.14479)"
+       inkscape:export-filename="..\Main\CtrlMenu\PoloVanquisher.svg"
+       inkscape:export-xdpi="651.22473"
+       inkscape:export-ydpi="651.22473">
       <path
          style="display:inline;fill:#17202c;fill-opacity:1;stroke:#fffdfd;stroke-width:7.15712;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
          d="m 1774.2634,-78.326884 46.853,35.03457"
@@ -346,7 +352,11 @@
          sodipodi:nodetypes="cc" />
     </g>
     <g
-       id="g11">
+       id="g11"
+       transform="matrix(1.9999964,0,0,1.9999964,-1804.9091,157.85459)"
+       inkscape:export-filename="..\Main\CtrlMenu\PoloMuter.svg"
+       inkscape:export-xdpi="832.62585"
+       inkscape:export-ydpi="832.62585">
       <path
          style="fill:#ffffff;fill-opacity:1;stroke:#f2f2f2;stroke-width:1.23602;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
          d="m 1745.1574,-166.32012 v 13.55581 h 3.0199 l 5.3295,4.11979 v -21.7956 l -5.3295,4.12 z"
@@ -544,9 +554,9 @@
        inkscape:export-ydpi="96"><tspan
          x="1862.0605"
          y="-1593.7023"
-         id="tspan2"><tspan
+         id="tspan6"><tspan
            style="font-weight:bold;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print Bold'"
-           id="tspan1">Incredidot template!</tspan></tspan></text>
+           id="tspan5">Incredidot template!</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text24"
@@ -554,7 +564,7 @@
        transform="translate(39.70639,22.005731)"><tspan
          x="1849.3984"
          y="-1469.3852"
-         id="tspan3">Write here credits n' stuff :)</tspan></text>
+         id="tspan7">Write here credits n' stuff :)</tspan></text>
     <rect
        style="fill:#626262;fill-opacity:1;stroke:#7a7a7a;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
        id="rect26"
@@ -573,6 +583,6 @@
        transform="matrix(1.6342307,0,0,1.6342307,-1126.3426,268.58087)"><tspan
          x="1998.8535"
          y="-413.16516"
-         id="tspan4">Close</tspan></text>
+         id="tspan8">Close</tspan></text>
   </g>
 </svg>

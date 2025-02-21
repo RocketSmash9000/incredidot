@@ -20,6 +20,8 @@ func _process(_delta: float) -> void:
 		elif already_playing:
 			sound_play()
 		local_loop = GlobalVars.current_loop
+	if !playing:
+		already_playing = false
 
 func sound_play() -> void:
 	meta = get_parent().type # Save the ID of the sound to play stored in the polo

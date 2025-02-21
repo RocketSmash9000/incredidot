@@ -58,48 +58,62 @@ func _process(_delta: float) -> void:
 			local_loop = GlobalVars.current_loop
 	
 		if Input.is_action_just_pressed("ui_click") and !GlobalVars.carrying_icon and picked:
-			# This makes the polo become unselected again
-			polostream.debug("Polo number " + str(get_meta("PoloID")) + " unpicked")
-			GlobalVars.picked_polos.erase(type) # Removes polo type from used list
-			type = 0 # Returns itself to original value
-			picked = false # Sets polo to unused state
-			GlobalVars.mouse_up = false
-			$AudioStreamPlayer.stop()
+			vanquish()
 			$AudioStreamPlayer.already_playing = false
-			# Returns to its default animation when unpicked
-			var animator = create_tween()
-			animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
-			animator.set_trans(Tween.TRANS_EXPO)
-			animator.set_ease(Tween.EASE_OUT)
-			animator.tween_property($Sprite2D, "position", Vector2($Sprite2D.position.x, 504), 0.2)
-			animator.play()
-			$Sprite2D.sprite_frames = default_anim
-			$Sprite2D.frame = randi() % 50
-			$Sprite2D.play("default")
-			randomize()
-			animator.tween_property($Sprite2D, "position", Vector2($Sprite2D.position.x, randi() % 85 + 48), 0.2)
-			animator.play()
 	
 	if GlobalVars.reset: # Resets the polo when the reset is called
-		type = 0
-		picked = false
-		$AudioStreamPlayer.stop()
-		var animator = create_tween()
+		vanquish()
+	
+	if GlobalVars.mouse_in_bottom_part:
+		var animator = create_tween() # This will move the Control Menu to whatever polo the mouse is on
 		animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 		animator.set_trans(Tween.TRANS_EXPO)
 		animator.set_ease(Tween.EASE_OUT)
-		animator.tween_property($Sprite2D, "position", Vector2($Sprite2D.position.x, 504), 0.1)
+		animator.set_parallel(true)
+		animator.tween_property($"../CtrlMenu", "position", Vector2($"../CtrlMenu".position.x, 757), 0.1)
 		animator.play()
-		$Sprite2D.sprite_frames = default_anim
-		$Sprite2D.frame = randi() % 50
-		$Sprite2D.play("default")
-		randomize()
-		animator.tween_property($Sprite2D, "position", Vector2($Sprite2D.position.x, randi() % 85 + 48), 0.5)
-		animator.play()
-	
+		
 
 func _when_self_mouse_entered() -> void:
 	mouse_in = true
+	var animator = create_tween() # This will move the Control Menu to whatever polo the mouse is on
+	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
+	animator.set_trans(Tween.TRANS_EXPO)
+	animator.set_ease(Tween.EASE_OUT)
+	animator.set_parallel(true)
+	animator.tween_property($"../CtrlMenu", "position", Vector2(position.x, 704), 0.25)
+	animator.play()
+	GlobalVars.target_polo = get_meta("PoloID")
 
 func _when_self_mouse_exited() -> void:
 	mouse_in = false
+
+func _when_mute_polo_pressed() -> void:
+	pass # Replace with function body.
+
+func _when_polo_vanquisher_pressed() -> void:
+	if GlobalVars.target_polo == get_meta("PoloID"):
+		vanquish()
+
+
+func vanquish():
+	# This makes the polo become unselected again
+	polostream.debug("Polo number " + str(get_meta("PoloID")) + " unpicked")
+	GlobalVars.picked_polos.erase(type) # Removes polo type from used list
+	type = 0 # Returns itself to original value
+	picked = false # Sets polo to unused state
+	GlobalVars.mouse_up = false
+	$AudioStreamPlayer.stop()
+	# Returns to its default animation when unpicked
+	var animator = create_tween()
+	animator.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
+	animator.set_trans(Tween.TRANS_EXPO)
+	animator.set_ease(Tween.EASE_OUT)
+	animator.tween_property($Sprite2D, "position", Vector2($Sprite2D.position.x, 504), 0.2)
+	animator.play()
+	$Sprite2D.sprite_frames = default_anim
+	$Sprite2D.frame = randi() % 50
+	$Sprite2D.play("default")
+	randomize()
+	animator.tween_property($Sprite2D, "position", Vector2($Sprite2D.position.x, randi() % 85 + 48), 0.2)
+	animator.play()

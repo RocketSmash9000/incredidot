@@ -3,16 +3,18 @@ extends Node
 # Define variables here if you need to access them from multiple scripts
 # Define variables under this comment and above func _ready()
 
-var mouse_up = false # Controls when the mouse has been unclicked
-var icon_meta = 0 # Metadata of the carried icon, aka its identifier
-var carrying_icon = false # Self-explanatory
+var mouse_up: bool = false # Controls when the mouse has been unclicked
+var icon_meta: int = 0 # Metadata of the carried icon, aka its identifier
+var carrying_icon: bool = false # Self-explanatory
 
-var mouse_in_top_part = false
-var mouse_in_bottom_part = false
+var mouse_in_top_part: bool = false
+var mouse_in_bottom_part: bool = false
 
 var picked_polos = [] # Used to keep track of the polos that have been picked
 
-var reset = false # Self-explanatory
+var reset: bool = false # Self-explanatory
+
+var target_polo: int = 0 # This stores the target polo of the Control Menu
 
 # Use these to set the time in seconds it takes to complete.
 # And the amount of loops it takes to return to the first loop.
@@ -21,8 +23,8 @@ var reset = false # Self-explanatory
 # There may be a delay of around 0.05 seconds or less before audio plays.
 # So if your sounds are 6 seconds, try subtracting 0.01 until the desired result.
 var loop_seconds = 6
-var loop_amount = 2
-var current_loop = 1
+var loop_amount: int = 2
+var current_loop: int = 1
 
 
 func _ready() -> void:

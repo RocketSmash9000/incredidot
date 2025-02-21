@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ch3y0bb60blqg"]
+[gd_scene load_steps=41 format=3 uid="uid://ch3y0bb60blqg"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_gq7oe"]
 [ext_resource type="Texture2D" uid="uid://mxmy4v0cdheu" path="res://Assets/UI_elements/Main/MenuIcon.svg" id="2_6b48f"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://duxpluw0lfv1y" path="res://Assets/Polos/18/PoloIcon.svg" id="24_82h5w"]
 [ext_resource type="Texture2D" uid="uid://oqp1bhsch15k" path="res://Assets/Polos/19/PoloIcon.svg" id="25_mdvuw"]
 [ext_resource type="Texture2D" uid="uid://cu6xtwls4mqs3" path="res://Assets/Polos/20/PoloIcon.svg" id="26_4ldrl"]
+[ext_resource type="PackedScene" uid="uid://boy8u10hbgile" path="res://Scenes/CtrlMenu.tscn" id="37_ap0nh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x3emk"]
 shader = ExtResource("7_2xb8m")
@@ -91,12 +92,6 @@ texture = ExtResource("2_ot14p")
 z_index = 2
 position = Vector2(1736, 64)
 texture = ExtResource("3_4xr65")
-
-[node name="BottomBar" type="Sprite2D" parent="Static elements"]
-z_index = 1
-position = Vector2(964, 912)
-scale = Vector2(1.00417, 0.946015)
-texture = ExtResource("3_bnpkk")
 
 [node name="TopBar" type="Sprite2D" parent="Static elements"]
 z_index = 1
@@ -298,6 +293,17 @@ offset_bottom = 240.0
 scale = Vector2(0.6, 0.6)
 horizontal_alignment = 2
 uppercase = true
+
+[node name="BottomBar" type="Sprite2D" parent="Static elements"]
+z_index = 2
+position = Vector2(964, 912)
+scale = Vector2(1.00417, 0.946015)
+texture = ExtResource("3_bnpkk")
+
+[node name="CtrlMenu" parent="Static elements" instance=ExtResource("37_ap0nh")]
+z_index = 1
+position = Vector2(192, 704)
+scale = Vector2(0.465, 0.465)
 
 [node name="01" type="TextureButton" parent="."]
 offset_left = 289.0
@@ -538,6 +544,20 @@ metadata/iconID = 20
 [connection signal="mouse_exited" from="Static elements/06" to="Static elements/06" method="_when_self_mouse_exited"]
 [connection signal="mouse_entered" from="Static elements/07" to="Static elements/07" method="_when_self_mouse_entered"]
 [connection signal="mouse_exited" from="Static elements/07" to="Static elements/07" method="_when_self_mouse_exited"]
+[connection signal="pressed" from="Static elements/CtrlMenu/MutePolo" to="Static elements/01" method="_when_mute_polo_pressed"]
+[connection signal="pressed" from="Static elements/CtrlMenu/MutePolo" to="Static elements/02" method="_when_mute_polo_pressed"]
+[connection signal="pressed" from="Static elements/CtrlMenu/MutePolo" to="Static elements/03" method="_when_mute_polo_pressed"]
+[connection signal="pressed" from="Static elements/CtrlMenu/MutePolo" to="Static elements/04" method="_when_mute_polo_pressed"]
+[connection signal="pressed" from="Static elements/CtrlMenu/MutePolo" to="Static elements/05" method="_when_mute_polo_pressed"]
+[connection signal="pressed" from="Static elements/CtrlMenu/MutePolo" to="Static elements/06" method="_when_mute_polo_pressed"]
+[connection signal="pressed" from="Static elements/CtrlMenu/MutePolo" to="Static elements/07" method="_when_mute_polo_pressed"]
+[connection signal="pressed" from="Static elements/CtrlMenu/PoloVanquisher" to="Static elements/01" method="_when_polo_vanquisher_pressed"]
+[connection signal="pressed" from="Static elements/CtrlMenu/PoloVanquisher" to="Static elements/02" method="_when_polo_vanquisher_pressed"]
+[connection signal="pressed" from="Static elements/CtrlMenu/PoloVanquisher" to="Static elements/03" method="_when_polo_vanquisher_pressed"]
+[connection signal="pressed" from="Static elements/CtrlMenu/PoloVanquisher" to="Static elements/04" method="_when_polo_vanquisher_pressed"]
+[connection signal="pressed" from="Static elements/CtrlMenu/PoloVanquisher" to="Static elements/05" method="_when_polo_vanquisher_pressed"]
+[connection signal="pressed" from="Static elements/CtrlMenu/PoloVanquisher" to="Static elements/06" method="_when_polo_vanquisher_pressed"]
+[connection signal="pressed" from="Static elements/CtrlMenu/PoloVanquisher" to="Static elements/07" method="_when_polo_vanquisher_pressed"]
 [connection signal="button_down" from="01" to="01" method="_when_self_button_down"]
 [connection signal="button_up" from="01" to="01" method="_when_self_button_up"]
 [connection signal="button_down" from="02" to="02" method="_when_self_button_down"]
@@ -579,3 +599,5 @@ metadata/iconID = 20
 [connection signal="button_down" from="20" to="20" method="_when_self_button_down"]
 [connection signal="button_up" from="20" to="20" method="_when_self_button_up"]
 [connection signal="timeout" from="Loop" to="." method="_when_loop_timeout"]
+
+[editable path="Static elements/CtrlMenu"]
