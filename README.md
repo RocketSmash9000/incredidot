@@ -1,3 +1,5 @@
+> I'm currently looking for people who know how to draw and animate sprites. If you'd like to help, hit me up in discord.
+
 # Incredidot
 A free and open source "tool" that aims for an easier experience during Incredibox mod development, as it removes most of the unnecesary work. With this tool you may now only need to add the polo sounds, animations and icons. No need to code or type anything hard to understand. Everything works out of the box.
 
